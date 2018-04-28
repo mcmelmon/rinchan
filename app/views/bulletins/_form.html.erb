@@ -1,0 +1,10 @@
+<%= form_for(Bulletin.new) do |f| %>
+  <%= render 'site/error_messages', object: f.object %>
+  <div class='field'>
+    <%= f.text_field :title %>
+  </div>
+  <div class='field'>
+    <%= f.text_area :body %>
+  </div>
+  <%= f.submit 'Post', class: 'btn btn-primary' %>
+<% end %>

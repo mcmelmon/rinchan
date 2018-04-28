@@ -1,0 +1,7 @@
+<li id='bulletin-<%= bulletin.id %>'>
+  <span class='user'><%= link_to bulletin.user.email, bulletin.user %></span>
+  <span class='content'><%= bulletin.body %></span>
+  <span class='timestamp'>
+    Posted <%= time_ago_in_words(bulletin.created_at) %> ago.
+  </span>
+</li>
