@@ -7,17 +7,17 @@
         <%= devise_error_messages! %>
 
         <div class='field mt-3 email'>
-          <%= f.label :email %><br />
+          <label><%= t('site.email') %></label><br />
           <%= f.email_field :email, autofocus: true, required: true, autocomplete: 'email' %>
         </div>
 
         <div class='field mt-2 name'>
-          <%= f.label :name %><br />
+          <label><%= t('site.name') %></label><br />
           <%= f.text_field :name, required: true %>
         </div>
 
         <div class='field mt-2 password'>
-          <%= f.label :password %>
+          <label><%= t('site.password') %></label><br />
           <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> <%= t('site.minimum_characters') %>)</em>
           <% end %><br />
