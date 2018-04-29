@@ -1,13 +1,16 @@
 <nav class='navbar navbar-light bg-light navbar-expand-md fixed-top'>
-  <a class='navbar-brand' href='#'>Rinchan</a>
+  <%= link_to 'Rinchan', root_path, class: 'navbar-brand' %>
   <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarsExampleDefault' aria-controls='navbarsExampleDefault' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>
   </button>
 
   <div class='collapse navbar-collapse' id='navbarsExampleDefault'>
     <ul class='navbar-nav mr-auto'>
-      <li class='nav-item active'>
-        <%= link_to I18n.t('site.topics'), root_path, class: 'nav-link' %>
+      <li class='nav-item'>
+        <%= link_to I18n.t('site.friends'), '#', class: 'nav-link' %>
+      </li>
+      <li class='nav-item'>
+        <%= link_to I18n.t('site.me'), user_path(current_user), class: 'nav-link' %>
       </li>
       <% if user_signed_in? %>
         <li class='nav-item dropdown'>
@@ -32,5 +35,6 @@
   </div>
 </nav>
 
-<p class='notice'><%= notice %></p>
-<p class='alert'><%= alert %></p>
+<% flash.each do |key, message| %>
+  <p role='alert' class='<%= key == 'notice' ? 'alert alert-success' : 'alert alert-warning' %>'><%= message %></p>
+<% end %>

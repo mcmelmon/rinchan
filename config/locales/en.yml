@@ -30,6 +30,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  bulletins:
+    form:
+      post_to_friends: 'Post To Friends'
   devise:
     mailer:
       confirmation_instructions:
@@ -44,10 +47,27 @@ en:
         signed_in: 'Hello admin!'
   home:
     index:
-
+      reply_button: 'Reply'
+      welcome_heading: 'Welcome!'
+      what_we_do: "You won't always know what to do in college.  Particularly in another country.  But others are already there.  They may have answers to your questions.  Maybe you will have an answer for someone else!"
   site:
+    email: 'Email'
     footer_tagline: 'The gods who follow move us forward.'
+    forgot_password: 'I forgot my password.'
+    friends: 'Friends'
+    have_account: 'Already have an account?'
+    me: 'Me'
+    minimum_characters: 'characters minimum'
+    no_account: "Don't have an account?"
+    password: 'Password'
+    remember_me: 'Remember Me'
     sign_in: 'Sign In'
     sign_out: 'Sign Out'
     sign_up: 'Sign Up'
-    topics: 'Topics'
+  topics:
+    form:
+      post_to_public: 'Post To Public'
+  users:
+    show:
+      friend_heading: 'Say something to your friends!'
+      public_heading: 'Start a topic for everyone!'
