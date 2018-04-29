@@ -4,5 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :bulletins
+  has_many :bulletins, inverse_of: :user, dependent: :destroy
+  has_many :topics, inverse_of: :user, dependent: :destroy
+  has_many :replies, inverse_of: :user, dependent: :destroy
 end

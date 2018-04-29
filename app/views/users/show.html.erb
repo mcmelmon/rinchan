@@ -1,19 +1,30 @@
-<div class='row'>
-  <aside class='col-md-4'>
-    <section class='user_info'>
-      <h1><%= @user.email %></h1>
-    </section>
-    <section class='bulletin_form'>
+<div class='user'>
+  <h1><%= @user.name %></h1>
+  <div class='row'>
+    <div class='col-md'>
+      <h2><%= t('.friend_heading') %></h2>
       <%= render partial: 'bulletins/form' %>
-      </section>
-  </aside>
-  <div class='col-md-8'>
-    <% if @user.bulletins.any? %>
-      <h3>Bulletins(<%= @user.bulletins.count %>)</h3>
-      <ol class='bulletins'>
-        <%= render @bulletins %>
-      </ol>
-      <%= will_paginate @bulletins %>
-    <% end %>
+
+      <% if @user.bulletins.any? %>
+        <h3>Bulletins(<%= @user.bulletins.count %>)</h3>
+        <ol class='bulletins'>
+          <%= render @bulletins %>
+        </ol>
+        <%= will_paginate @bulletins %>
+      <% end %>
+    </div>
+
+    <div class='col-md'>
+      <h2><%= t('.public_heading') %></h2>
+      <%= render partial: 'topics/form' %>
+
+      <% if @user.topics.any? %>
+        <h3>Your public topics(<%= @user.topics.count %>)</h3>
+        <ol class='topics'>
+          <%= render @topics %>
+        </ol>
+        <%= will_paginate @topics %>
+      <% end %>
+    </div>
   </div>
 </div>

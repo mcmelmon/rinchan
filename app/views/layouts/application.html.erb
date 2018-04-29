@@ -11,7 +11,7 @@
     <%= csp_meta_tag %>
   </head>
 
-  <body class='<%= 'rinchan #{controller.controller_name} #{controller.action_name}' %> container'>
+  <body class='<%= "rinchan #{controller.controller_name} #{controller.action_name}" %> container'>
     <%= render partial: 'site/navigation' %>
     <%= yield %>
     <%= render partial: 'site/footer' %>

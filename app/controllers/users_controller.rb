@@ -11,5 +11,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @bulletins = @user.bulletins.paginate(page: params[:page])
+    @topics = @user.topics.paginate(page: params[:page])
   end
 end
