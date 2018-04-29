@@ -16,13 +16,36 @@ ActiveRecord::Schema.define(version: 2018_04_29_000145) do
   enable_extension "plpgsql"
 
   create_table "bulletins", force: :cascade do |t|
-    t.string "title"
     t.text "body"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id", "created_at"], name: "index_bulletins_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_bulletins_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.bigint "user_id"
+    t.bigint "bulletin_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bulletin_id", "created_at"], name: "index_comments_on_bulletin_id_and_created_at"
+    t.index ["bulletin_id"], name: "index_comments_on_bulletin_id"
+    t.index ["user_id", "created_at"], name: "index_comments_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "objections", force: :cascade do |t|
+    t.string "body"
+    t.bigint "user_id"
+    t.bigint "topic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id", "created_at"], name: "index_objections_on_topic_id_and_created_at"
+    t.index ["topic_id"], name: "index_objections_on_topic_id"
+    t.index ["user_id", "created_at"], name: "index_objections_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_objections_on_user_id"
   end
 
   create_table "replies", force: :cascade do |t|
@@ -32,8 +55,22 @@ ActiveRecord::Schema.define(version: 2018_04_29_000145) do
     t.bigint "topic_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["topic_id", "created_at"], name: "index_replies_on_topic_id_and_created_at"
     t.index ["topic_id"], name: "index_replies_on_topic_id"
+    t.index ["user_id", "created_at"], name: "index_replies_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_replies_on_user_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id"
+    t.bigint "topic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id", "created_at"], name: "index_tags_on_topic_id_and_created_at"
+    t.index ["topic_id"], name: "index_tags_on_topic_id"
+    t.index ["user_id", "created_at"], name: "index_tags_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_tags_on_user_id"
   end
 
   create_table "topics", force: :cascade do |t|
@@ -64,6 +101,11 @@ ActiveRecord::Schema.define(version: 2018_04_29_000145) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bulletins", "users"
+  add_foreign_key "objections", "topics"
+  add_foreign_key "objections", "users"
+  add_foreign_key "replies", "topics"
+  add_foreign_key "replies", "users"
+  add_foreign_key "tags", "topics"
+  add_foreign_key "tags", "users"
   add_foreign_key "topics", "users"
 end

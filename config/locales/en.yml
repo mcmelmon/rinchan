@@ -51,13 +51,17 @@ en:
       welcome_heading: 'Welcome!'
       what_we_do: "You won't always know what to do in college.  Particularly in another country.  But others are already there.  They may have answers to your questions.  Maybe you will have an answer for someone else!"
   site:
+    confirm_password: 'we need your current password to confirm your changes'
+    edit_profile: 'Edit Profile'
     email: 'Email'
     footer_tagline: 'The gods who follow move us forward.'
     forgot_password: 'I forgot my password.'
     friends: 'Friends'
     have_account: 'Already have an account?'
+    leave_blank_if_no_change: 'leave blank if you do not want to change it'
     me: 'Me'
     minimum_characters: 'characters minimum'
+    name: 'Name'
     no_account: "Don't have an account?"
     password: 'Password'
     remember_me: 'Remember Me'
@@ -70,4 +74,4 @@ en:
   users:
     show:
       friend_heading: 'Say something to your friends!'
-      public_heading: 'Start a topic for everyone!'
+      public_heading: 'Start a public discussion!'
