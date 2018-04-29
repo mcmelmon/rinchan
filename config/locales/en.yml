@@ -32,7 +32,8 @@
 en:
   bulletins:
     form:
-      post_to_friends: 'Post To Friends'
+      post_to_friends: 'Friends'
+      update_bulletin: 'Update'
   devise:
     mailer:
       confirmation_instructions:
@@ -51,6 +52,7 @@ en:
       welcome_heading: 'Welcome!'
       what_we_do: "You won't always know what to do in college.  Particularly in another country.  But others are already there.  They may have answers to your questions.  Maybe you will have an answer for someone else!"
   site:
+    are_you_sure: 'Are you sure?'
     confirm_password: 'we need your current password to confirm your changes'
     edit_profile: 'Edit Profile'
     email: 'Email'
@@ -63,6 +65,7 @@ en:
     minimum_characters: 'characters minimum'
     name: 'Name'
     no_account: "Don't have an account?"
+    passed_time: 'ago'
     password: 'Password'
     remember_me: 'Remember Me'
     sign_in: 'Sign In'
@@ -70,8 +73,10 @@ en:
     sign_up: 'Sign Up'
   topics:
     form:
-      post_to_public: 'Post To Public'
+      anonymous: 'Anonymous'
+      post_to_public: 'Public'
+      update_topic: 'Update'
   users:
     show:
-      friend_heading: 'Say something to your friends!'
+      friend_heading: 'Talk to your friends!'
       public_heading: 'Start a public discussion!'

@@ -1,7 +1,7 @@
-<%= form_for(Bulletin.new) do |f| %>
+<%= form_for(@bulletin || Bulletin.new) do |f| %>
   <%= render 'site/error_messages', object: f.object %>
   <div class='field'>
     <%= f.text_area :body %>
   </div>
-  <%= f.submit t('.post_to_friends'), class: 'btn btn-primary' %>
+  <%= f.submit (@bulletin.present? ? t('.update_bulletin') : t('.post_to_friends')), class: 'btn btn-primary' %>
 <% end %>

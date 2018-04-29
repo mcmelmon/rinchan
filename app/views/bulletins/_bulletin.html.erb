@@ -1,6 +1,9 @@
-<li id='bulletin-<%= bulletin.id %>'>
-  <div class='content'><%= bulletin.body %></div>
-  <div class='timestamp'>
-    <%= time_ago_in_words(bulletin.created_at) %> ago.
+<div id='bulletin-<%= bulletin.id %>'>
+  <div class='timestamp'><%= time_ago_in_words(bulletin.created_at) %> <%= t('site.passed_time') %></div>
+  <p><%= bulletin.body %></p>
+  <div class='actions mb-4'>
+    <span><%= link_to 'reply', '#' %></span> | 
+    <span><%= link_to 'edit', edit_bulletin_path(bulletin) %></span> | 
+    <span><%= link_to 'delete', bulletin, method: :delete, data: { confirm: t('site.are_you_sure') } %></span>
   </div>
 </li>
