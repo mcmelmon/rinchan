@@ -1,0 +1,8 @@
+<div class='container topics-for-tag'>
+  <% @topics.each do |topic| %>
+    <div id=<%= "topic-for-tag-#{@tag.name.gsub(/\s/,'-')}" %>>
+      <div class='timestamp'><%= time_ago_in_words(topic.created_at) %> <%= t('site.passed_time') %></div>
+      <p><%= topic.subject %></p>
+    </div>
+  <% end %>
+</div>

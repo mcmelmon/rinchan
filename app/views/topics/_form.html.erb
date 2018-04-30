@@ -1,11 +1,16 @@
 <%= form_for(@topic || Topic.new) do |f| %>
   <%= render 'site/error_messages', object: f.object %>
-  <div class='field'>
+  <div class='field mt-2'>
     <%= f.text_area :subject %>
+  </div>
+  <div class='field tags mb-4'>
+    <label><%= t('.tag') %></label><br />
+    <%= text_field_tag :tags, @topic&.display_tags %>
   </div>
   <div class='field float-right'>
     <label><%= t('.anonymous') %></label>
     <%= f.check_box :anonymous %>
   </div>
-  <%= f.submit (@topic.present? ? t('.update_topic') : t('.post_to_public')), class: 'btn btn-secondary' %>
+  <%= f.submit (@topic.present? ? t('.update_topic') : t('.post_to_public')), class: 'btn btn-primary' %>
+  <%= link_to 'Cancel', user_path(current_user), class: 'btn btn-secondary cancel-btn' %>
 <% end %>

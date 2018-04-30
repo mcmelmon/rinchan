@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   before_action :logged_in_user
   before_action :correct_user, except: [:create]
+  after_action :tag_topic, only: [:create, :update]
 
   def create
     @topic = current_user.topics.build(topic_params)
@@ -33,7 +34,6 @@ class TopicsController < ApplicationController
   end
 
   private
-
     def topic_params
       params.require(:topic).permit(:subject, :anonymous)
     end
@@ -48,6 +48,14 @@ class TopicsController < ApplicationController
       unless user_signed_in?
         flash[:danger] = "Please log in."
         redirect_to user_session_path
+      end
+    end
+
+    def tag_topic
+      return unless params[:tags].present?
+      @topic.clear_tags
+      params[:tags].split(',').collect(&:lstrip).each do |name|
+        @topic.tags.create(name: name, user: current_user)
       end
     end
 end

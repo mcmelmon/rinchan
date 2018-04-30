@@ -12,11 +12,8 @@
   <div class='container'>
     <!-- Example row of columns -->
     <div class='row'>
-      <% @topics.each do |topic| %>
-        <div class='col-md-6'>
-          <div class='timestamp'><%= time_ago_in_words(topic.created_at) %> <%= t('site.passed_time') %></div>
-          <p><%= topic.subject %></p>
-        </div>
+      <% @tags.each_with_index do |tag, index| %>
+        <p><%= link_to tag, tag_path(Tag.first_with_name(tag)) %><%= ',' unless index == (@tags.length - 1)%>&nbsp;</p>
       <% end %>
     </div>
   </div> <!-- /container -->
