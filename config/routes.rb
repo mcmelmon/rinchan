@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :bulletins, only: [:create, :destroy, :edit, :update]
+  resources :tags, only: [:show]
   resources :topics, only: [:create, :destroy, :edit, :update]
   resources :users, only: [:destroy, :edit, :index, :show]
 end

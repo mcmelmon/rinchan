@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @topics = Topic.all.limit(9)
+    @tags = Tag.unique_names
   end
 end

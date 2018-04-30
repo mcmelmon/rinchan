@@ -32,7 +32,7 @@
 en:
   bulletins:
     form:
-      post_to_friends: 'Friends'
+      post_to_friends: 'To Friends'
       update_bulletin: 'Update'
   devise:
     mailer:
@@ -74,7 +74,8 @@ en:
   topics:
     form:
       anonymous: 'Anonymous'
-      post_to_public: 'Public'
+      post_to_public: 'To Public'
+      tag: 'Tag this discussion (e.g. "restaurants, dining out")'
       update_topic: 'Update'
   users:
     show:
