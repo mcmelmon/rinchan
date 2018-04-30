@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   before_action :logged_in_user
-  before_action :correct_user
+  before_action :correct_user, except: [:create]
 
   def create
     @topic = current_user.topics.build(topic_params)
