@@ -3,6 +3,9 @@
     <div class='container'>
       <h1 class='display-3'><%= t('.welcome_heading') %></h1>
       <p><%= t('.what_we_do') %></p>
+      <% unless user_signed_in? %>
+        <%= link_to t('site.sign_up'), new_user_registration_path, class: 'btn btn-primary' %>
+      <% end %>
     </div>
   </div>
 
@@ -11,8 +14,8 @@
     <div class='row'>
       <% @topics.each do |topic| %>
         <div class='col-md-6'>
+          <div class='timestamp'><%= time_ago_in_words(topic.created_at) %> <%= t('site.passed_time') %></div>
           <p><%= topic.subject %></p>
-          <p><a class='btn btn-secondary' href='#' role='button'><%= t('.reply_button')%></a></p>
         </div>
       <% end %>
     </div>
