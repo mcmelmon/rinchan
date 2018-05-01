@@ -1,14 +1,22 @@
 <div id='topic-<%= topic.id %>'>
-  <div class='timestamp'><%= time_ago_in_words(topic.created_at) %> <%= t('site.passed_time') %></div>
   <div class='tags'>
     <% topic.tags.each_with_index do |tag, index| %>
       <%= link_to tag.name, tag_path(tag) %><%= ',' unless index == (topic.tags.length - 1) %>
     <% end %>
-  <p><%= topic.subject %></p>
   </div>
-  <div class='actions mb-4'>
-    <span><%= link_to 'reply', '#' %></span> | 
-    <span><%= link_to 'edit', edit_topic_path(topic) %></span> | 
-    <span><%= link_to 'delete', topic, method: :delete, data: { confirm: t('site.are_you_sure') } %></span>
+  <p><%= topic.subject %></p>
+  <div class='row'>
+    <div class='col-md-4'>
+      <div class='timestamp'><%= link_to "#{time_ago_in_words(topic.created_at)} #{t('site.passed_time')}", topic_path(topic) %></div>
+    </div>
+    <div class='col-md-8'>
+      <div class='actions text-right mb-4'>
+        <span><%= link_to 'reply', new_topic_reply_path(topic) %></span>
+        <% if topic_belongs_to_current_user?(topic) %> 
+           | <span><%= link_to 'edit', edit_topic_path(topic) %></span> | 
+          <span><%= link_to 'delete', topic, method: :delete, data: { confirm: t('site.are_you_sure') } %></span>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

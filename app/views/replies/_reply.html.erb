@@ -1,0 +1,16 @@
+<div id='reply-<%= reply.id %>'>
+  <p><%= reply.body %></p>
+  <div class='row'>
+    <div class='col-md-4'>
+      <div class='timestamp'><%= time_ago_in_words(reply.created_at) %> <%= t('site.passed_time') %></div>
+    </div>
+    <div class='col-md-8'>
+      <div class='actions text-right mb-4'>
+        <% if reply_belongs_to_current_user?(reply) %>
+          <span><%= link_to 'edit', '#' %></span> |
+          <span><%= link_to 'delete', reply, method: :delete, data: { confirm: t('site.are_you_sure') } %></span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

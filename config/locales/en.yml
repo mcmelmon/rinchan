@@ -51,6 +51,9 @@ en:
       reply_button: 'Reply'
       welcome_heading: 'Welcome!'
       what_we_do: "You won't always know what to do in college.  Particularly in another country.  But others are already there.  They may have answers to your questions.  Maybe you will have an answer for someone else!"
+  replies:
+    form:
+      reply: 'Reply'
   site:
     are_you_sure: 'Are you sure?'
     confirm_password: 'we need your current password to confirm your changes'
@@ -75,7 +78,7 @@ en:
     form:
       anonymous: 'Anonymous'
       post_to_public: 'To Public'
-      tag: 'Tag this discussion (e.g. "restaurants, dining out")'
+      tag: 'File Under (for example: "restaurants, dining out")'
       update_topic: 'Update'
   users:
     show:

@@ -1,0 +1,10 @@
+<div class='container'>
+  <h4>Topic</h4>
+  <%= render partial: 'topic', locals: { topic: @topic } %>
+  <% if @replies.any? %>
+    <hr>
+    <h4>Replies</h4>
+    <div class='mt-4'><%= render partial: 'replies/list' %></div>
+  <% end %>
+</div>
+
