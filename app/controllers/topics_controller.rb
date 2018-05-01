@@ -1,12 +1,12 @@
 class TopicsController < ApplicationController
   before_action :logged_in_user
-  before_action :correct_user, except: [:create]
+  before_action :correct_user, except: [:create, :show]
   after_action :tag_topic, only: [:create, :update]
 
   def create
     @topic = current_user.topics.build(topic_params)
     if @topic.save
-      flash[:notice] = "Discussion created!"
+      flash[:notice] = 'Discussion created!'
       redirect_to user_path(current_user)
     else
       redirect_to root_path
@@ -16,19 +16,24 @@ class TopicsController < ApplicationController
   def destroy
     # TODO: We may not want to delete all of the replies to a topic.
     @topic.destroy
-    flash[:notice] = "Discussion deleted."
+    flash[:notice] = 'Discussion deleted.'
     redirect_to request.referrer || root_url
   end
 
   def edit
   end
 
+  def show
+    @topic = Topic.find_by(id: params[:id])
+    @replies = @topic.replies.paginate(page: params[:page])
+  end
+
   def update
     if @topic.update(topic_params)
-      flash[:notice] = "Discussion updated."
+      flash[:notice] = 'Discussion updated.'
       redirect_to user_path(current_user)
     else
-      flash[:error] = "There was a problem."
+      flash[:error] = 'There was a problem.'
       redirect_to user_path(current_user)
     end
   end

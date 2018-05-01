@@ -1,0 +1,12 @@
+<%= form_for @reply, url: topic_replies_path do |f| %>
+  <%= render 'site/error_messages', object: f.object %>
+  <div class='field mt-2'>
+    <%= f.text_area :body %>
+  </div>
+  <div class='field float-right'>
+    <label><%= t('.anonymous') %></label>
+    <%= f.check_box :anonymous %>
+  </div>
+  <%= f.submit t('.reply'), class: 'btn btn-primary' %>
+  <%= link_to 'Cancel', :back, class: 'btn btn-secondary cancel-btn' %>
+<% end %>
