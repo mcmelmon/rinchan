@@ -14,7 +14,6 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    # TODO: We may not want to delete all of the replies to a topic.
     @topic.destroy
     flash[:notice] = 'Discussion deleted.'
     redirect_to request.referrer || root_url
