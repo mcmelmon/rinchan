@@ -1,6 +1,6 @@
 class Topic < ApplicationRecord
   belongs_to :user, inverse_of: :topics
-  has_many :replies
+  has_many :replies, dependent: :destroy
   has_many :tags, inverse_of: :topic, dependent: :destroy
 
   default_scope -> { order(created_at: :desc) }
