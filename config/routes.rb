@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   resources :bulletins, only: [:create, :destroy, :edit, :update]
   resources :tags, only: [:show]
   resources :topics, shallow: true do
+    resources :bumps, only: [:create]
+    resources :objections
     resources :replies
   end
   resources :users, only: [:destroy, :edit, :index, :show]

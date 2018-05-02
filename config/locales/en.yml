@@ -51,6 +51,9 @@ en:
       reply_button: 'Reply'
       welcome_heading: 'Welcome!'
       what_we_do: "You won't always know what to do in college.  Particularly in another country.  But others are already there.  They may have answers to your questions.  Maybe you will have an answer for someone else!"
+  objections:
+    form:
+      object: 'Object'
   replies:
     form:
       reply: 'Reply'
@@ -60,7 +63,6 @@ en:
     edit_profile: 'Edit Profile'
     email: 'Email'
     footer_tagline: 'The gods who follow move us forward.'
-    forgot_password: 'I forgot my password.'
     friends: 'Friends'
     have_account: 'Already have an account?'
     leave_blank_if_no_change: 'leave blank if you do not want to change it'
@@ -71,9 +73,17 @@ en:
     passed_time: 'ago'
     password: 'Password'
     remember_me: 'Remember Me'
-    sign_in: 'Sign In'
-    sign_out: 'Sign Out'
-    sign_up: 'Sign Up'
+    actions:
+      bump: 'bump'
+      delete: 'delete'
+      edit: 'edit'
+      forgot_password: 'I forgot my password.'
+      object: 'object'
+      reply: 'reply'
+      sign_in: 'Sign In'
+      sign_out: 'Sign Out'
+      sign_up: 'Sign Up'
+      update: 'Update'
   topics:
     form:
       anonymous: 'Anonymous'
