@@ -4,14 +4,16 @@
     <div class='col-md-4'>
       <div class='timestamp'><%= time_ago_in_words(bulletin.created_at) %> <%= t('site.passed_time') %></div>
     </div>
-    <div class='col-md-8'>
-      <div class='actions text-right mb-4'>
-        <span><%= link_to 'reply', '#' %></span>
-        <% if bulletin_belongs_to_current_user?(bulletin) %> 
-           | <span><%= link_to 'edit', edit_bulletin_path(bulletin) %></span> | 
-          <span><%= link_to 'delete', bulletin, method: :delete, data: { confirm: t('site.are_you_sure') } %></span>
-        <% end %>
+    <% if user_signed_in? %>
+      <div class='col-md-8'>
+        <div class='actions text-right mb-4'>
+          <span><%= link_to t('site.actions.reply'), '#' %></span>
+          <% if bulletin_belongs_to_current_user?(bulletin) %>
+             | <span><%= link_to t('site.actions.edit'), edit_bulletin_path(bulletin) %></span>
+             | <span><%= link_to t('site.actions.delete'), bulletin, method: :delete, data: { confirm: t('site.are_you_sure') } %></span>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>

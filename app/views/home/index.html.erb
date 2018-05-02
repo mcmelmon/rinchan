@@ -4,7 +4,7 @@
       <h1 class='display-3'><%= t('.welcome_heading') %></h1>
       <p><%= t('.what_we_do') %></p>
       <% unless user_signed_in? %>
-        <%= link_to t('site.sign_up'), new_user_registration_path, class: 'btn btn-primary' %>
+        <%= link_to t('site.actions.sign_up'), new_user_registration_path, class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>

@@ -7,7 +7,7 @@ class TopicsController < ApplicationController
     @topic = current_user.topics.build(topic_params)
     if @topic.save
       flash[:notice] = 'Discussion created!'
-      redirect_to user_path(current_user)
+      redirect_to topic_path(@topic)
     else
       redirect_to root_path
     end
