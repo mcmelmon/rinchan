@@ -11,6 +11,10 @@ module TopicsHelper
     reply.user == current_user
   end
 
+  def reply_classes_for(reply)
+    (reply.user == reply.topic.user) ? "reply topic-author" : "reply"
+  end
+
   def topic_belongs_to_current_user?(topic)
     topic.user == current_user
   end

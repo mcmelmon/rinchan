@@ -10,11 +10,20 @@
   </div>
 
   <div class='container'>
-    <!-- Example row of columns -->
-    <div class='row'>
-      <% @tags.each_with_index do |tag, index| %>
-        <p><%= link_to tag, tag_path(Tag.first_with_name(tag)) %><%= ',' unless index == (@tags.length - 1)%>&nbsp;</p>
-      <% end %>
+    <div class='topic-navigation'>
+      <h4>
+        <span><%= link_to t('.recent_topics'), root_path %></span>
+         | 
+        <span><%= link_to t('.topics_with_replies'), root_path(sort: 'replies') %></span>
+    </h4>
+    <hr>
     </div>
-  </div> <!-- /container -->
+    <div class='row no-gutters'>
+      <div class='topic posts'>
+        <% @topics.each do |topic| %>
+          <%= render partial: 'topics/homepage', locals: {topic: topic} %>
+          <%= will_paginate @topics %>
+        <% end %>
+      </div>
+    </div>
 </main>

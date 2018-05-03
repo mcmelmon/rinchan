@@ -48,7 +48,9 @@ en:
         signed_in: 'Hello admin!'
   home:
     index:
+      recent_topics: 'Recent'
       reply_button: 'Reply'
+      topics_with_replies: 'Replies'
       welcome_heading: 'Welcome!'
       what_we_do: "You won't always know what to do in college.  Particularly in another country.  But others are already there.  They may have answers to your questions.  Maybe you will have an answer for someone else!"
   objections:
@@ -62,6 +64,7 @@ en:
     confirm_password: 'we need your current password to confirm your changes'
     edit_profile: 'Edit Profile'
     email: 'Email'
+    file_under: 'File Under'
     footer_tagline: 'The gods who follow move us forward.'
     friends: 'Friends'
     have_account: 'Already have an account?'
@@ -88,7 +91,7 @@ en:
     form:
       anonymous: 'Anonymous'
       post_to_public: 'To Public'
-      tag: 'File Under (for example: "restaurants, dining out")'
+      tag_examples: '(for example: "restaurants, bargains")'
       update_topic: 'Update'
   users:
     show:

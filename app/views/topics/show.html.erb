@@ -1,9 +1,17 @@
 <div class='container'>
-  <h4>Topic</h4>
-  <%= render partial: 'topic', locals: { topic: @topic } %>
+  <% if @topic.tags.any? %>
+    <div class='tags'>
+      <label><%= t('site.file_under') %>: </label>
+      <% @topic.tags.each_with_index do |tag, index| %>
+        <%= link_to tag.name, tag_path(tag) %><%= ',' unless index == (@topic.tags.length - 1) %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class='topic topic-author'><%= render partial: 'topic', locals: { topic: @topic } %></div>
+
   <% if @replies.any? %>
-    <hr>
-    <h4>Replies</h4>
+    <h4 class='mt-4'>Replies</h4>
     <div class='mt-4'><%= render partial: 'replies/list' %></div>
   <% end %>
 </div>

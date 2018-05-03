@@ -5,9 +5,18 @@ class Topic < ApplicationRecord
   has_many :bumps, inverse_of: :topic, dependent: :destroy
   has_many :objections, inverse_of: :topic, dependent: :destroy
 
-  default_scope -> { order(created_at: :desc) }
+  default_scope -> { order(updated_at: :desc) }
 
   validates_presence_of :subject
+
+  def self.by(association)
+    left_joins(:replies)
+      .group(:id)
+      .count
+      .sort_by{|k,v| v}
+      .collect{|t| Topic.find_by(id: t.first)}
+      .reverse
+  end
 
   def self.with_tag(name)
     Tag.where(name: name).collect(&:topic)
