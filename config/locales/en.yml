@@ -42,7 +42,6 @@ en:
     minimum_characters: 'characters minimum'
     name: 'Name'
     no_account: "Don't have an account?"
-    passed_time: 'ago'
     password: 'Password'
     remember_me: 'Remember Me'
     actions:

@@ -3,6 +3,18 @@ jp:
     form:
       post_to_friends: 'To Friends'
       update_bulletin: 'Update'
+  datetime:
+    distance_in_words:
+      one: "1日前"
+      x_days: "%{count} 数日前"
+      less_than_x_minutes:
+        one: "一分未満"
+      x_minutes:
+        one: "1分前"
+        other: "%{count} 数分前"
+      about_x_hours:
+        one: "約1時間"
+        other: "about %{count} 時間前"
   devise:
     mailer:
       confirmation_instructions:
@@ -41,7 +53,6 @@ jp:
     minimum_characters: 'characters minimum'
     name: 'Name'
     no_account: "Don't have an account?"
-    passed_time: 'ago'
     password: 'Password'
     remember_me: 'Remember Me'
     the_gods: '続く神々が私たちを前進させます。'
