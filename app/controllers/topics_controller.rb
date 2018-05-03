@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_action :logged_in_user
+  before_action :logged_in_user, except: [:show]
   before_action :correct_user, except: [:create, :show]
   after_action :tag_topic, only: [:create, :update]
 

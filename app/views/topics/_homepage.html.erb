@@ -1,0 +1,13 @@
+<div class='mb-4' id='topic-<%= topic.id %>'>
+  <p><%= link_to topic.subject.truncate(64), topic_path(topic) %></p>
+  <div class='row'>
+    <div class='col-md-7'>
+      <% topic.tags.each do |tag| %>
+        <div class='tag'><%= link_to tag.name, tag_path(tag) %></div>
+      <% end %>
+    </div>
+    <div class='col-md-4 text-right'>
+    <div class='timestamp'><%= time_ago_in_words(topic.created_at) %> <%= t('site.passed_time') %></div>
+    </div>
+  </div>
+</div>

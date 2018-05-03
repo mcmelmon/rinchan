@@ -6,10 +6,12 @@
 
   <div class='collapse navbar-collapse' id='navbarsExampleDefault'>
     <ul class='navbar-nav mr-auto'>
-      <li class='nav-item'>
-        <%= link_to I18n.t('site.friends'), '#', class: 'nav-link' %>
-      </li>
       <% if user_signed_in? %>
+        <% if false # we will get to friends %>
+          <li class='nav-item'>
+            <%= link_to I18n.t('site.friends'), '#', class: 'nav-link' %>
+          </li>
+        <% end %>
         <li class='nav-item'>
           <%= link_to I18n.t('site.me'), user_path(current_user), class: 'nav-link' %>
         </li>

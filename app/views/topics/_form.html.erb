@@ -4,7 +4,7 @@
     <%= f.text_area :subject %>
   </div>
   <div class='field tags mb-4'>
-    <label><%= t('.tag') %></label><br />
+    <label><%= t('site.file_under') %> <%= t('.tag_examples') %></label><br />
     <%= text_field_tag :tags, @topic&.display_tags %>
   </div>
   <div class='field float-right'>
