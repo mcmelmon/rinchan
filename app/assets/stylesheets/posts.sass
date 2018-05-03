@@ -13,9 +13,33 @@
     width: 100%
 
   .topic-navigation
-    h4
-      a
+    .heading
+      display: flex
+      justify-content: space-between
+
+      border-bottom: 2px solid #ededed
+      .tabs
+        align-items: center
         color: #2d2d2d
+        display: flex
+        font-size: 24px
+
+        a
+          color: #ccc
+
+        .recent
+          border-right: 2px solid #ededed
+
+        .tab
+          padding: 4px 12px 4px 8px
+
+          &.active
+            a
+              color: #2d2d2d
+
+      .title
+        color: #2d2d2d
+        display: inline-block
 
 .tag
   background: #e2fbdc

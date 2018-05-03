@@ -16,6 +16,9 @@ jp:
         one: "約1時間"
         other: "about %{count} 時間前"
   devise:
+    failure:
+      user:
+        not_found_in_database: 'There was an error with your email or password.'
     mailer:
       confirmation_instructions:
         subject: 'Hello!'
@@ -31,6 +34,7 @@ jp:
     index:
       recent_topics: '最近'
       reply_button: 'Reply'
+      topics: '話題'
       topics_with_activity: 'Activity'
       welcome_heading: 'いらっしゃいませ!'
       what_we_do: "家庭から学校まで、そして世界に出て行くと、すべての停留所が新しいスタートです. 途中で質問をしないと、答えが欠落します!"

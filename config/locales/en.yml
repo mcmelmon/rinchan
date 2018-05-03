@@ -19,6 +19,7 @@ en:
     index:
       recent_topics: 'Recent'
       reply_button: 'Reply'
+      topics: 'Topics'
       topics_with_replies: 'Replies'
       welcome_heading: 'Welcome!'
       what_we_do: "From home to school and then out into the world, every stop is a new start. If you don't ask questions along the way, you will miss the answers!"
