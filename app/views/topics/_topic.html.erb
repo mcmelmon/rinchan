@@ -5,7 +5,7 @@
       <% topic.tags.each do |tag| %>
         <div class='tag'><%= link_to tag.name, tag_path(tag) %></div>
       <% end %>
-      <div class='timestamp'><%= link_to "#{time_ago_in_words(topic.created_at)} #{t('site.passed_time')}", topic_path(topic) %></div>
+      <div class='timestamp'><%= link_to time_ago_in_words(topic.created_at), topic_path(topic) %></div>
     </div>
     <% if user_signed_in? %>
       <div class='col-md-8'>

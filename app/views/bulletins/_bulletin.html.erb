@@ -2,7 +2,7 @@
   <p><%= bulletin.body %></p>
   <div class='row'>
     <div class='col-md-4'>
-      <div class='timestamp'><%= time_ago_in_words(bulletin.created_at) %> <%= t('site.passed_time') %></div>
+      <div class='timestamp'><%= time_ago_in_words(bulletin.created_at) %></div>
     </div>
     <% if user_signed_in? %>
       <div class='col-md-8'>
