@@ -4,7 +4,7 @@
       <h1 class='display-3'><%= t('.welcome_heading') %></h1>
       <p><%= t('.what_we_do') %></p>
       <% unless user_signed_in? %>
-        <%= link_to t('site.actions.sign_up'), new_user_registration_path, class: 'btn btn-primary' %>
+        <div class='mt-4'><%= link_to t('site.actions.sign_up'), new_user_registration_path, class: 'btn btn-primary' %></div>
       <% end %>
     </div>
   </div>
@@ -14,7 +14,7 @@
       <h4>
         <span><%= link_to t('.recent_topics'), root_path %></span>
          | 
-        <span><%= link_to t('.topics_with_replies'), root_path(sort: 'replies') %></span>
+        <span><%= link_to t('.topics_with_activity'), root_path(sort: 'replies') %></span>
     </h4>
     <hr>
     </div>

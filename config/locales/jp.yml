@@ -48,11 +48,11 @@ en:
         signed_in: 'Hello admin!'
   home:
     index:
-      recent_topics: 'Recent'
+      recent_topics: '最近'
       reply_button: 'Reply'
-      topics_with_replies: 'Replies'
-      welcome_heading: 'Welcome!'
-      what_we_do: "From home to school and then out into the world, every stop is a new start. If you don't ask questions along the way, you will miss the answers!"
+      topics_with_activity: 'Activity'
+      welcome_heading: 'いらっしゃいませ!'
+      what_we_do: "家庭から学校まで、そして世界に出て行くと、すべての停留所が新しいスタートです. 途中で質問をしないと、答えが欠落します!"
   objections:
     form:
       object: 'Object'
@@ -65,7 +65,6 @@ en:
     edit_profile: 'Edit Profile'
     email: 'Email'
     file_under: 'File Under'
-    footer_tagline: 'The gods who follow move us forward.'
     friends: 'Friends'
     have_account: 'Already have an account?'
     leave_blank_if_no_change: 'leave blank if you do not want to change it'
@@ -76,16 +75,17 @@ en:
     passed_time: 'ago'
     password: 'Password'
     remember_me: 'Remember Me'
+    the_gods: '続く神々が私たちを前進させます。'
     actions:
       bump: 'bump'
       delete: 'delete'
       edit: 'edit'
       forgot_password: 'I forgot my password.'
       object: 'object'
-      reply: 'reply'
-      sign_in: 'Sign In'
-      sign_out: 'Sign Out'
-      sign_up: 'Sign Up'
+      reply: '応答'
+      sign_in: 'サインイン'
+      sign_out: 'サインアウト'
+      sign_up: 'サインアップ'
       update: 'Update'
   topics:
     form:
@@ -97,3 +97,4 @@ en:
     show:
       friend_heading: 'Talk to your friends!'
       public_heading: 'Start a public discussion!'
+
