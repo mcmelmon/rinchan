@@ -11,12 +11,15 @@
 
   <div class='container'>
     <div class='topic-navigation'>
-      <h4>
-        <span><%= link_to t('.recent_topics'), root_path %></span>
-         | 
-        <span><%= link_to t('.topics_with_activity'), root_path(sort: 'replies') %></span>
-    </h4>
-    <hr>
+      <div class='heading mb-4'>
+        <div class='title'>
+          <h2><%= t('.topics') %></h2>
+        </div>
+        <div class='tabs'>
+          <div class="tab recent mr-1 <%= params[:sort].present? ? '' : 'active' %>"><%= link_to t('.recent_topics'), root_path %></div>
+          <div class="tab activity <%= params[:sort].present? ? 'active' : '' %>"><%= link_to t('.topics_with_activity'), root_path(sort: 'activity') %></div>
+        </div>
+      </div>
     </div>
     <div class='row no-gutters'>
       <div class='topic posts'>
