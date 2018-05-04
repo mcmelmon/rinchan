@@ -34,7 +34,9 @@ class BulletinsController < ApplicationController
   private
 
     def bulletin_params
-      params.require(:bulletin).permit(:body, :title)
+      params.require(:bulletin).permit(:body).tap do |clean_params|
+        clean_params[:body] = Rails::Html::FullSanitizer.new.sanitize(clean_params[:body])
+      end
     end
 
     def correct_user

@@ -10,12 +10,9 @@ class Topic < ApplicationRecord
   validates_presence_of :subject
 
   def self.by(association)
-    left_joins(:replies)
-      .group(:id)
-      .count
-      .sort_by{|k,v| v}
-      .collect{|t| Topic.find_by(id: t.first)}
-      .reverse
+    with = joins(association.to_sym).group(:id).count.sort_by{|k,v| v}.reverse.collect{|t| t.first}
+    without = Topic.where.not(id: with).collect(&:id)
+    (with + without).collect{|id| Topic.find(id)}
   end
 
   def self.with_tag(name)

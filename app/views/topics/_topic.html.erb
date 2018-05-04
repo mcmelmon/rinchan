@@ -1,15 +1,15 @@
 <div class='mb-4' id='topic-<%= topic.id %>'>
+  <div class='timestamp'><%= time_ago_in_words(topic.updated_at) %></div>
   <p><%= topic.subject %></p>
   <div class='row'>
-    <div class='col-md-4'>
+    <div class='col-md-8'>
       <% topic.tags.each do |tag| %>
         <div class='tag'><%= link_to tag.name, tag_path(tag) %></div>
       <% end %>
-      <div class='timestamp'><%= link_to time_ago_in_words(topic.created_at), topic_path(topic) %></div>
     </div>
     <% if user_signed_in? %>
-      <div class='col-md-8'>
-        <div class='actions text-right'>
+      <div class='col-md-4 text-right'>
+        <div class='actions'>
           <span><%= link_to t('site.actions.reply'), new_topic_reply_path(topic) %></span>
           <% if topic_belongs_to_current_user?(topic) %>
              | <span><%= link_to t('site.actions.edit'), edit_topic_path(topic) %></span>

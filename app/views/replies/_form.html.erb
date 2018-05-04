@@ -1,4 +1,4 @@
-<%= form_for @reply, url: topic_replies_path do |f| %>
+<%= form_for @reply, url: (@reply.persisted? ? reply_path : topic_replies_path) do |f| %>
   <%= render 'site/error_messages', object: f.object %>
   <div class='field mt-2'>
     <%= f.text_area :body %>
@@ -7,6 +7,6 @@
     <label><%= t('.anonymous') %></label>
     <%= f.check_box :anonymous %>
   </div>
-  <%= f.submit t('.reply'), class: 'btn btn-primary' %>
+  <%= f.submit (@reply.persisted? ? 'Update' : t('.reply')), class: 'btn btn-primary' %>
   <%= link_to 'Cancel', :back, class: 'btn btn-secondary cancel-btn' %>
 <% end %>

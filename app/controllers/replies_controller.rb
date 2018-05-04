@@ -28,16 +28,24 @@ class RepliesController < ApplicationController
   end
 
   def update
+    if @reply.update(reply_params)
+      flash[:notice] = 'Reply updated!'
+    else
+      flash[:error] = 'There was a problem.'
+    end
+    redirect_to topic_path(@topic)
   end
 
   private
+    def reply_params
+      params.require(:reply).permit(:body).tap do |clean_params|
+        clean_params[:body] = Rails::Html::FullSanitizer.new.sanitize(clean_params[:body])
+      end
+    end
+
     def correct_user
       @reply = current_user.replies.find_by(id: params[:id])
       redirect_to root_url if @reply.nil?
-    end
-
-    def reply_params
-      params.require(:reply).permit(:body, :anonymous)
     end
 
     def logged_in_user
@@ -49,6 +57,6 @@ class RepliesController < ApplicationController
     end
 
     def set_topic
-      @topic = Topic.find_by(id: params[:topic_id])
+      @topic = Topic.find_by(id: params[:topic_id]) || @reply.topic
     end
 end
