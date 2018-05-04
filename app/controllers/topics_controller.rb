@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
+  before_action :correct_user, only: [:destroy, :edit, :update]
   before_action :logged_in_user, except: [:show]
-  before_action :correct_user, except: [:create, :show]
   after_action :tag_topic, only: [:create, :update]
 
   def create
@@ -24,7 +24,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find_by(id: params[:id])
-    @replies = @topic.replies.paginate(page: params[:page])
+    @replies = @topic.replies.order(updated_at: :desc).paginate(page: params[:page])
   end
 
   def update
@@ -39,7 +39,9 @@ class TopicsController < ApplicationController
 
   private
     def topic_params
-      params.require(:topic).permit(:subject, :anonymous)
+      params.require(:topic).permit(:subject).tap do |clean_params|
+        clean_params[:subject] = Rails::Html::FullSanitizer.new.sanitize(clean_params[:subject])
+      end
     end
 
     def correct_user

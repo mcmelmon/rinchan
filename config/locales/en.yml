@@ -34,7 +34,6 @@ en:
     confirm_password: 'we need your current password to confirm your changes'
     edit_profile: 'Edit Profile'
     email: 'Email'
-    file_under: 'File Under'
     footer_tagline: 'The gods who follow move us forward.'
     friends: 'Friends'
     have_account: 'Already have an account?'
@@ -59,8 +58,8 @@ en:
   topics:
     form:
       anonymous: 'Anonymous'
-      post_to_public: 'To Public'
-      tag_examples: '(for example: "restaurants, bargains")'
+      post_to_public: 'Discuss!'
+      tag_examples: 'File Under (for example: "restaurants, bargains")'
       update_topic: 'Update'
   users:
     show:

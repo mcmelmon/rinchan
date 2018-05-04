@@ -1,16 +1,14 @@
 class UsersController < ApplicationController
-  def destroy
-  end
-
-  def edit
-  end
-
-  def index
-  end
+  before_action :correct_user
 
   def show
-    @user = User.find(params[:id])
     @bulletins = @user.bulletins.paginate(page: params[:page])
     @topics = @user.topics.paginate(page: params[:page])
   end
+
+  private
+    def correct_user
+      @user = current_user # or someday an admin, friend
+      redirect_to root_url if @user.nil?
+    end
 end

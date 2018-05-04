@@ -8,11 +8,6 @@
       <%= f.email_field :email, autofocus: true, autocomplete: 'email' %>
     </div>
 
-    <div class='field mt-2 name'>
-      <label><%= t('site.name') %></label><br />
-      <%= f.text_field :name %>
-    </div>
-
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
@@ -36,8 +31,8 @@
       <%= f.password_field :current_password, required: true, autocomplete: 'off' %>
     </div>
 
-    <div class='actions'>
-      <%= f.submit t('site.actions.update') %>
+    <div class='actions mt-4'>
+      <%= f.submit t('site.actions.update'), class: 'btn btn-primary' %>
     </div>
   <% end %>
 </div>

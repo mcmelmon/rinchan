@@ -11,11 +11,6 @@
           <%= f.email_field :email, autofocus: true, required: true, autocomplete: 'email' %>
         </div>
 
-        <div class='field mt-2 name'>
-          <label><%= t('site.name') %></label><br />
-          <%= f.text_field :name, required: true %>
-        </div>
-
         <div class='field mt-2 password'>
           <label><%= t('site.password') %></label><br />
           <% if @minimum_password_length %>
