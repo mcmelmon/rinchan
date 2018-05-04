@@ -15,6 +15,10 @@ class Topic < ApplicationRecord
     (with + without).collect{|id| Topic.find(id)}
   end
 
+  def self.search(search)
+    where("subject ~* ?", search)
+  end
+
   def self.with_tag(name)
     Tag.where(name: name).collect(&:topic)
   end
