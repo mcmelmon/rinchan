@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   before_action :correct_user, only: [:destroy, :edit, :update]
-  before_action :logged_in_user, except: [:show]
+  before_action :logged_in_user, except: [:index, :show]
   after_action :tag_topic, only: [:create, :update]
 
   def create
@@ -20,6 +20,10 @@ class TopicsController < ApplicationController
   end
 
   def edit
+  end
+
+  def index
+    @topics = Topic.search(params[:search]).paginate(page: params[:page])
   end
 
   def show
