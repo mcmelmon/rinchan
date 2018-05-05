@@ -27,6 +27,10 @@ class RepliesController < ApplicationController
     @reply = @topic.replies.build
   end
 
+  def show
+    @reply = Reply.find_by(id: params[:id])
+  end
+
   def update
     if @reply.update(reply_params)
       flash[:notice] = 'Reply updated!'
@@ -57,6 +61,6 @@ class RepliesController < ApplicationController
     end
 
     def set_topic
-      @topic = Topic.find_by(id: params[:topic_id]) || @reply.topic
+      @topic = params[:topic_id].present? ? Topic.find_by(id: params[:topic_id]) : Reply.find_by(id: params[:id]).topic
     end
 end

@@ -1,0 +1,11 @@
+<div class='search-results container'>
+  <% @results.each do |result| %>
+    <% if result[:type] == 'Topic' || result[:type] == 'Tag' %>
+      <%= render partial: 'topics/homepage', locals: {topic: result[:topic]} %>
+    <% elsif result[:type] == 'Reply' %>
+      <p><%= link_to result[:reply]&.body, reply_path(result[:reply]) %></p>
+      <div class='original-topic m-3'><%= render partial: 'topics/homepage', locals: {topic: result[:topic]} %></div>
+    <% end %>
+    <hr>
+  <% end %>
+</div>

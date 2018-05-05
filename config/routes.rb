@@ -16,8 +16,6 @@ Rails.application.routes.draw do
       registration: 'register',
       sign_up: 'cmon_let_me_in' }
 
-  root to: "home#index"
-
   resources :bulletins, only: [:create, :destroy, :edit, :update]
   resources :tags, only: [:show]
   resources :topics, shallow: true do
@@ -26,4 +24,8 @@ Rails.application.routes.draw do
     resources :replies
   end
   resources :users, only: [:destroy, :edit, :index, :show]
+
+  get 'search', to: 'search#index', as: :search
+
+  root to: "home#index"
 end

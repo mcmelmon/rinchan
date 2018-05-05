@@ -23,7 +23,7 @@ class TopicsController < ApplicationController
   end
 
   def index
-    @topics = Topic.search(params[:search]).paginate(page: params[:page])
+    @topics = PgSearch.multisearch(params[:search]).where(searchable_type: 'Topic').collect{|pgs| Topic.find(pgs.searchable_id)}.paginate(page: params[:page])
   end
 
   def show
