@@ -1,4 +1,7 @@
 class Topic < ApplicationRecord
+  include PgSearch
+  multisearchable :against => :subject
+
   belongs_to :user, inverse_of: :topics
   has_many :replies, dependent: :destroy
   has_many :tags, inverse_of: :topic, dependent: :destroy

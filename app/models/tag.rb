@@ -1,4 +1,7 @@
 class Tag < ApplicationRecord
+  include PgSearch
+  multisearchable :against => :name
+
   belongs_to :user, inverse_of: :tags
   belongs_to :topic, inverse_of: :tags
 

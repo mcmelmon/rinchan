@@ -1,5 +1,8 @@
 <div class='mb-4' id='topic-<%= topic.id %>'>
-  <p><%= link_to topic.subject.truncate(64), topic_path(topic) %></p>
+  <p>
+    <span><%= topic.subject.truncate(64) %></span>
+    <span><%= link_to '(view)', topic_path(topic) %></span>
+  </p>
   <div class='row'>
     <div class='col-md-7'>
       <% topic.tags.each do |tag| %>
