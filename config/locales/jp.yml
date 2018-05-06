@@ -2,7 +2,7 @@ jp:
   bulletins:
     form:
       post_to_friends: 'To Friends'
-      update_bulletin: 'Update'
+      update_bulletin: 'アップデート'
   datetime:
     distance_in_words:
       one: "1日前"
@@ -43,7 +43,7 @@ jp:
       object: 'Object'
   replies:
     form:
-      reply: 'Reply'
+      reply: 'リプライ'
   site:
     are_you_sure: 'Are you sure?'
     confirm_password: 'we need your current password to confirm your changes'
@@ -80,4 +80,3 @@ jp:
     show:
       friend_heading: 'Talk to your friends!'
       public_heading: 'Start a public discussion!'
-
