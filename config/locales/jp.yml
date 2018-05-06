@@ -43,7 +43,7 @@ jp:
       object: 'Object'
   replies:
     form:
-      reply: 'Reply'
+      reply: 'リプライ'
   site:
     are_you_sure: 'Are you sure?'
     confirm_password: 'we need your current password to confirm your changes'
