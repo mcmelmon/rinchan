@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   before_action :correct_user, only: [:destroy, :edit, :update]
-  before_action :logged_in_user, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
   after_action :tag_topic, only: [:create, :update]
 
   def create
@@ -51,14 +51,6 @@ class TopicsController < ApplicationController
     def correct_user
       @topic = current_user.topics.find_by(id: params[:id])
       redirect_to root_url if @topic.nil?
-    end
-
-    def logged_in_user
-      #TODO: make into a concern
-      unless user_signed_in?
-        flash[:danger] = "Please log in."
-        redirect_to user_session_path
-      end
     end
 
     def tag_topic

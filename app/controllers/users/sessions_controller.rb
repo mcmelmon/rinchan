@@ -4,9 +4,10 @@ class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def new
+    super
+    store_location_for(resource, request.referrer)
+  end
 
   # POST /resource/sign_in
   # def create
@@ -24,4 +25,9 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  # The path used after sign in.
+  def after_sign_in_path_for(resource)
+    stored_location_for(resource) || request.referer || root_path
+  end
 end

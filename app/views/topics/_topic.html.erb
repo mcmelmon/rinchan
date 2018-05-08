@@ -7,23 +7,21 @@
         <div class='tag'><%= link_to tag.name, tag_path(tag) %></div>
       <% end %>
     </div>
-    <% if user_signed_in? %>
-      <div class='col-md-4 text-right'>
-        <div class='actions'>
-          <span><%= link_to t('site.actions.reply'), new_topic_reply_path(topic) %></span>
-          <% if topic_belongs_to_current_user?(topic) %>
-             | <span><%= link_to t('site.actions.edit'), edit_topic_path(topic) %></span>
-             | <span><%= link_to t('site.actions.delete'), topic, method: :delete, data: { confirm: t('site.are_you_sure') } %></span>
-          <% else %>
-            <% unless current_user_bumped_topic?(topic) %>
-               | <span><%= link_to t('site.actions.bump'), topic_bumps_path(topic), method: :post %></span>
-            <% end %>
-            <% unless current_user_objected_to_topic?(topic) %>
-               | <span><%= link_to t('site.actions.object'), new_topic_objection_path(topic) %></span>
-            <% end %>
+    <div class='col-md-4 text-right'>
+      <div class='actions'>
+        <span><%= link_to t('site.actions.reply'), new_topic_reply_path(topic) %></span>
+        <% if topic_belongs_to_current_user?(topic) %>
+           | <span><%= link_to t('site.actions.edit'), edit_topic_path(topic) %></span>
+           | <span><%= link_to t('site.actions.delete'), topic, method: :delete, data: { confirm: t('site.are_you_sure') } %></span>
+        <% else %>
+          <% unless current_user_bumped_topic?(topic) %>
+             | <span><%= link_to t('site.actions.bump'), topic_bumps_path(topic), method: :post %></span>
           <% end %>
-        </div>
+          <% unless current_user_objected_to_topic?(topic) %>
+             | <span><%= link_to t('site.actions.object'), new_topic_objection_path(topic) %></span>
+          <% end %>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
