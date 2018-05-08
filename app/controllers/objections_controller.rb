@@ -1,9 +1,9 @@
 class ObjectionsController < ApplicationController
-  before_action :correct_user, only: [:destroy, :edit, :update]
-  before_action :logged_in_user
+  before_action :authenticate_user!
   before_action :set_topic
 
   def create
+    return if current_user == @topic.user
     @objection = @topic.objections.build(objection_params)
     @objection.user = current_user
     if @objection.save
@@ -36,14 +36,6 @@ class ObjectionsController < ApplicationController
     def correct_user
       @objection = current_user.objections.find_by(id: params[:id])
       redirect_to root_url if @objection.nil?
-    end
-
-    def logged_in_user
-      #TODO: make into a concern
-      unless user_signed_in?
-        flash[:danger] = "Please log in."
-        redirect_to user_session_path
-      end
     end
 
     def set_topic
