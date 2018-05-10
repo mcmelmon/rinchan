@@ -18,24 +18,24 @@ jp:
   devise:
     failure:
       user:
-        not_found_in_database: 'There was an error with your email or password.'
+        not_found_in_database: 'パスワードかメールアドレスに間違いはありませんか'
     mailer:
       confirmation_instructions:
-        subject: 'Hello!'
-        user_subject: 'Hello! Please confirm your email.'
+        subject: 'こんにちは！'
+        user_subject: 'こんにちは！メールアドレスを確認してください'
       reset_password_instructions:
         subject: 'Reset instructions.'
     sessions:
       user:
-        signed_in: 'Welcome! You are signed in.'
+        signed_in: 'サインインしています'
       admin:
         signed_in: 'Hello admin!'
   home:
     index:
       recent_topics: '最近'
-      reply_button: 'Reply'
+      reply_button: 'リプライ'
       topics: '話題'
-      topics_with_activity: 'Activity'
+      topics_with_activity: 'アクティビティー'
       welcome_heading: 'いらっしゃいませ!'
       what_we_do: "家庭から学校まで、そして世界に出て行くと、すべての停留所が新しいスタートです. 途中で質問をしないと、答えが欠落します!"
   objections:
@@ -46,36 +46,36 @@ jp:
       reply: 'リプライ'
   site:
     are_you_sure: 'Are you sure?'
-    confirm_password: 'we need your current password to confirm your changes'
-    edit_profile: 'Edit Profile'
-    email: 'Email'
-    friends: 'Friends'
-    have_account: 'Already have an account?'
+    confirm_password: '変更を確認するため現在のパスワードが必要です'
+    edit_profile: 'プロフィールを変更'
+    email: 'メールアドレス'
+    friends: 'フレンド'
+    have_account: 'すでにアカウントをお持ちの場合ですか？'
     leave_blank_if_no_change: 'leave blank if you do not want to change it'
     me: 'Me'
     minimum_characters: 'characters minimum'
-    name: 'Name'
-    no_account: "Don't have an account?"
-    password: 'Password'
+    name: '名前'
+    no_account: "アカウントをお持ちでないですか?"
+    password: 'パスワード'
     remember_me: 'Remember Me'
     the_gods: '続く神々が私たちを前進させます。'
     actions:
       bump: 'bump'
-      delete: 'delete'
-      edit: 'edit'
-      forgot_password: 'I forgot my password.'
+      delete: '削除'
+      edit: '編集'
+      forgot_password: 'パスワードを忘れました'
       object: 'object'
       reply: '応答'
       sign_in: 'サインイン'
       sign_out: 'サインアウト'
       sign_up: 'サインアップ'
-      update: 'Update'
+      update: 'アップデート'
   topics:
     form:
-      anonymous: 'Anonymous'
+      anonymous: '名無し'
       post_to_public: 'Discuss!'
       tag_examples: 'File Under (for example: "restaurants, bargains")'
-      update_topic: 'Update'
+      update_topic: 'アップデート'
   users:
     show:
       friend_heading: 'Talk to your friends!'
