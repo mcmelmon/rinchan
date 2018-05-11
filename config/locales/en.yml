@@ -20,7 +20,7 @@ en:
       recent_topics: 'Recent'
       reply_button: 'Reply'
       topics: 'Topics'
-      topics_with_replies: 'Replies'
+      topics_with_activity: 'Replies'
       welcome_heading: 'Welcome!'
       what_we_do: "From home to school and then out into the world, every stop is a new start. If you don't ask questions along the way, you will miss the answers!"
   objections:
@@ -29,28 +29,38 @@ en:
   replies:
     form:
       reply: 'Reply'
+    reply:
+      topic: 'topic'
   site:
     are_you_sure: 'Are you sure?'
+    bumped_topics: 'Topics I moved forward'
     confirm_password: 'we need your current password to confirm your changes'
     edit_profile: 'Edit Profile'
     email: 'Email'
-    footer_tagline: 'The gods who follow move us forward.'
     friends: 'Friends'
     have_account: 'Already have an account?'
+    helpful_replies: 'Replies I found helpful'
     leave_blank_if_no_change: 'leave blank if you do not want to change it'
     me: 'Me'
     minimum_characters: 'characters minimum'
     name: 'Name'
     no_account: "Don't have an account?"
+    not_helpful_replies: 'Replies I found not helpful'
     password: 'Password'
     remember_me: 'Remember Me'
+    the_gods: 'The gods who follow move us forward.'
     actions:
       bump: 'bump'
       delete: 'delete'
       edit: 'edit'
       forgot_password: 'I forgot my password.'
+      helpful: 'helpful'
+      not_helpful: 'not helpful'
       object: 'object'
       reply: 'reply'
+      remove_bump: 'remove bump'
+      remove_demurral: 'remove demurral'
+      remove_thank: 'remove thank'
       sign_in: 'Sign In'
       sign_out: 'Sign Out'
       sign_up: 'Sign Up'
@@ -64,4 +74,6 @@ en:
   users:
     show:
       friend_heading: 'Talk to your friends!'
+      my_public_discussions: 'My Public Discussions'
+      my_public_replies: 'My Public Replies'
       public_heading: 'Start a public discussion!'

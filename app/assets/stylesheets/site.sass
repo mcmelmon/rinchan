@@ -54,3 +54,40 @@
   p
     font-size: 20px
     margin: 0
+
+  .apple_pagination
+    cursor: default
+    padding: 1em
+    text-align: center
+    width: 100%
+
+    a, span
+      color: black
+      padding: 0.2em 0.3em
+      text-decoration: none
+
+      &:hover, &:focus
+        text-decoration: underline
+
+    .disabled
+      a
+        color: #aaaaaa
+
+        &:hover, &:focus
+          text-decoration: none
+
+    .current
+      -moz-border-radius: 1em
+      -webkit-border-radius: 1em
+      background-color: darken(#f1f1f1, 20)
+      border-radius: 1em
+      display: inline-block
+      font-style: normal
+      font-weight: bold
+      height: 1.4em
+      line-height: 1.5
+      text-shadow: rgba(white, .8) 1px 1px 1px
+      width: 1.4em
+
+    .pagination
+      margin: auto

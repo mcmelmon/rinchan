@@ -9,4 +9,6 @@ class User < ApplicationRecord
   has_many :replies, inverse_of: :user, dependent: :destroy
   has_many :tags, inverse_of: :user, dependent: :destroy
   has_many :bumps, inverse_of: :user, dependent: :destroy
+  has_many :thanks, inverse_of: :user, dependent: :destroy
+  has_many :demurrals, inverse_of: :user, dependent: :destroy
 end

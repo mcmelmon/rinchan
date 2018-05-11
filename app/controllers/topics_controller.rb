@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
-  before_action :correct_user, only: [:destroy, :edit, :update]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:destroy, :edit, :update]
   after_action :tag_topic, only: [:create, :update]
 
   def create
@@ -17,13 +17,6 @@ class TopicsController < ApplicationController
     @topic.destroy
     flash[:notice] = 'Discussion deleted.'
     redirect_to request.referrer || root_url
-  end
-
-  def edit
-  end
-
-  def index
-    @topics = PgSearch.multisearch(params[:search]).where(searchable_type: 'Topic').collect{|pgs| Topic.find(pgs.searchable_id)}.paginate(page: params[:page])
   end
 
   def show

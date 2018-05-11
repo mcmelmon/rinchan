@@ -25,8 +25,8 @@
       <div class='topic posts'>
         <% @topics.each do |topic| %>
           <%= render partial: 'topics/homepage', locals: {topic: topic} %>
-          <%= will_paginate @topics %>
         <% end %>
       </div>
+      <div class='apple_pagination'><%= will_paginate @topics %></div>
     </div>
 </main>

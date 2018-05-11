@@ -19,11 +19,18 @@ Rails.application.routes.draw do
   resources :bulletins, only: [:create, :destroy, :edit, :update]
   resources :tags, only: [:show]
   resources :topics, shallow: true do
-    resources :bumps, only: [:create]
+    resources :bumps, only: [:create, :destroy]
     resources :objections
-    resources :replies
+    resources :replies do
+      resources :demurrals, only: [:create, :destroy]
+      resources :thanks, only: [:create, :destroy]
+    end
   end
-  resources :users, only: [:destroy, :edit, :index, :show]
+  resources :users, only: [:destroy, :edit, :index, :show], shallow: true do
+    resources :bumps, only: [:index]
+    resources :demurrals, only: [:index]
+    resources :thanks, only: [:index]
+  end
 
   get 'search', to: 'search#index', as: :search
 

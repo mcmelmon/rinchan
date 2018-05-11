@@ -44,18 +44,23 @@ jp:
   replies:
     form:
       reply: 'リプライ'
+    reply:
+      topic: 'topic'
   site:
     are_you_sure: 'Are you sure?'
+    bumped_topics: 'Topics I moved forward'
     confirm_password: '変更を確認するため現在のパスワードが必要です'
     edit_profile: 'プロフィールを変更'
     email: 'メールアドレス'
     friends: 'フレンド'
     have_account: 'すでにアカウントをお持ちの場合ですか？'
+    helpful_replies: 'Replies I found helpful'
     leave_blank_if_no_change: 'leave blank if you do not want to change it'
     me: 'Me'
     minimum_characters: 'characters minimum'
     name: '名前'
     no_account: "アカウントをお持ちでないですか?"
+    not_helpful_replies: 'Replies I found not helpful'
     password: 'パスワード'
     remember_me: 'Remember Me'
     the_gods: '続く神々が私たちを前進させます。'
@@ -64,7 +69,12 @@ jp:
       delete: '削除'
       edit: '編集'
       forgot_password: 'パスワードを忘れました'
+      helpful: 'this was helpful!'
+      not_helpful: 'this was not helpful'
       object: 'object'
+      remove_bump: 'remove bump'
+      remove_demurral: 'remove demurral'
+      remove_thank: 'remove thank'
       reply: '応答'
       sign_in: 'サインイン'
       sign_out: 'サインアウト'
@@ -79,4 +89,6 @@ jp:
   users:
     show:
       friend_heading: 'Talk to your friends!'
+      my_public_discussions: 'My Public Discussions'
+      my_public_replies: 'My Public Replies'
       public_heading: 'Start a public discussion!'
