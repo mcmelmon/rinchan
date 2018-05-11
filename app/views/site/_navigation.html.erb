@@ -19,6 +19,9 @@
           <%= link_to current_user.email&.truncate(14), '#', class: 'nav-link dropdown-toggle', id: 'dropdown01', 'data-toggle': 'dropdown' %>
           <div class='dropdown-menu' aria-labelledby='dropdown01'>
             <%= link_to I18n.t('site.edit_profile'), edit_user_registration_path, class: 'dropdown-item' %>
+            <%= link_to I18n.t('site.bumped_topics'), user_bumps_path(current_user), class: 'dropdown-item' %>
+            <%= link_to I18n.t('site.helpful_replies'), user_thanks_path(current_user), class: 'dropdown-item' %>
+            <%= link_to I18n.t('site.not_helpful_replies'), user_demurrals_path(current_user), class: 'dropdown-item' %>
             <%= link_to I18n.t('site.actions.sign_out'), destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
           </div>
         </li>

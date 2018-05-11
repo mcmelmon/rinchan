@@ -14,11 +14,13 @@
            | <span><%= link_to t('site.actions.edit'), edit_topic_path(topic) %></span>
            | <span><%= link_to t('site.actions.delete'), topic, method: :delete, data: { confirm: t('site.are_you_sure') } %></span>
         <% else %>
-          <% unless current_user_bumped_topic?(topic) %>
+          <% unless current_user_bumped_topic?(topic) || current_user_objected_to_topic?(topic)  %>
              | <span><%= link_to t('site.actions.bump'), topic_bumps_path(topic), method: :post %></span>
-          <% end %>
-          <% unless current_user_objected_to_topic?(topic) %>
              | <span><%= link_to t('site.actions.object'), new_topic_objection_path(topic) %></span>
+          <% end %>
+          <% if current_user_bumped_topic?(topic) %>
+            <% bump = current_user.bumps.find_by(topic_id: topic.id) %>
+             | <span><%= link_to t('site.actions.remove_bump'), bump, method: :delete, data: { confirm: t('site.are_you_sure') } %></span>
           <% end %>
         <% end %>
       </div>

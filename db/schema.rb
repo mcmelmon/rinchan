@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_05_013555) do
+ActiveRecord::Schema.define(version: 2018_05_10_032038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 2018_05_05_013555) do
     t.index ["bulletin_id"], name: "index_comments_on_bulletin_id"
     t.index ["user_id", "created_at"], name: "index_comments_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "demurrals", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "reply_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reply_id"], name: "index_demurrals_on_reply_id"
+    t.index ["user_id"], name: "index_demurrals_on_user_id"
   end
 
   create_table "objections", force: :cascade do |t|
@@ -91,6 +100,15 @@ ActiveRecord::Schema.define(version: 2018_05_05_013555) do
     t.index ["user_id"], name: "index_tags_on_user_id"
   end
 
+  create_table "thanks", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "reply_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reply_id"], name: "index_thanks_on_reply_id"
+    t.index ["user_id"], name: "index_thanks_on_user_id"
+  end
+
   create_table "topics", force: :cascade do |t|
     t.text "subject"
     t.boolean "anonymous", default: true
@@ -124,11 +142,15 @@ ActiveRecord::Schema.define(version: 2018_05_05_013555) do
   add_foreign_key "bumps", "users"
   add_foreign_key "comments", "bulletins"
   add_foreign_key "comments", "users"
+  add_foreign_key "demurrals", "replies"
+  add_foreign_key "demurrals", "users"
   add_foreign_key "objections", "topics"
   add_foreign_key "objections", "users"
   add_foreign_key "replies", "topics"
   add_foreign_key "replies", "users"
   add_foreign_key "tags", "topics"
   add_foreign_key "tags", "users"
+  add_foreign_key "thanks", "replies"
+  add_foreign_key "thanks", "users"
   add_foreign_key "topics", "users"
 end

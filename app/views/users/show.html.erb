@@ -4,8 +4,14 @@
       <h2><%= t('.public_heading') %></h2>
       <div><%= render partial: 'topics/form' %></div>
 
-      <% if @user.topics.any? %>
+      <% if @topics.any? %>
+        <h3 class='mt-4'><%= t('.my_public_discussions') %></h3>
         <div class='mt-4'><%= render partial: 'topics/list' %></div>
+      <% end %>
+
+      <% if @replies.any? %>
+        <h3 class='mt-2'><%= t('.my_public_replies') %></h3>
+        <div class='mt-4'><%= render partial: 'replies/list' %></div>
       <% end %>
     </div>
 
