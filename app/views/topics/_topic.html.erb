@@ -26,4 +26,17 @@
       </div>
     </div>
   </div>
+  <% if @with_objections %>
+    <% objection = topic.objections.find_by(user_id: current_user.id) %>
+    <% if objection.present? %>
+      <div class='m-4'>
+        <h4><%= t('.my_objection') %></h4>
+        <div class='mt-2'><%= objection.body %></div>
+        <div class='actions'>
+          <span><%= link_to t('site.actions.edit'), edit_objection_path(objection) %></span> |
+          <span><%= link_to t('site.actions.delete'), objection, method: :delete, data: { confirm: t('site.are_you_sure') } %></span>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>

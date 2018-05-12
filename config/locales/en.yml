@@ -26,6 +26,7 @@ en:
   objections:
     form:
       object: 'Object'
+      update: 'Update'
   replies:
     form:
       reply: 'Reply'
@@ -33,19 +34,14 @@ en:
       topic: 'topic'
   site:
     are_you_sure: 'Are you sure?'
-    bumped_topics: 'Topics I moved forward'
     confirm_password: 'we need your current password to confirm your changes'
-    edit_profile: 'Edit Profile'
     email: 'Email'
     friends: 'Friends'
     have_account: 'Already have an account?'
-    helpful_replies: 'Replies I found helpful'
     leave_blank_if_no_change: 'leave blank if you do not want to change it'
-    me: 'Me'
     minimum_characters: 'characters minimum'
     name: 'Name'
     no_account: "Don't have an account?"
-    not_helpful_replies: 'Replies I found not helpful'
     password: 'Password'
     remember_me: 'Remember Me'
     the_gods: 'The gods who follow move us forward.'
@@ -65,12 +61,21 @@ en:
       sign_out: 'Sign Out'
       sign_up: 'Sign Up'
       update: 'Update'
+    menus:
+      bumped_topics: 'Topics I moved forward'
+      edit_profile: 'Edit Profile'
+      helpful_replies: 'Replies I found helpful'
+      me: 'Me'
+      not_helpful_replies: 'Replies I found not helpful'
+      objected_topics: 'Topics I found objectionable'
   topics:
     form:
       anonymous: 'Anonymous'
       post_to_public: 'Discuss!'
       tag_examples: 'File Under (for example: "restaurants, bargains")'
       update_topic: 'Update'
+    topic:
+      my_objection: 'My Objection'
   users:
     show:
       friend_heading: 'Talk to your friends!'

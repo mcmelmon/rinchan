@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       registration: 'register',
       sign_up: 'cmon_let_me_in' }
 
-  resources :bulletins, only: [:create, :destroy, :edit, :update]
+  resources :bulletins, shallow: true
   resources :tags, only: [:show]
   resources :topics, shallow: true do
     resources :bumps, only: [:create, :destroy]
@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   resources :users, only: [:destroy, :edit, :index, :show], shallow: true do
     resources :bumps, only: [:index]
     resources :demurrals, only: [:index]
+    resources :objections, only: [:index]
     resources :thanks, only: [:index]
   end
 
