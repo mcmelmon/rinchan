@@ -1,9 +1,9 @@
-<%= form_for @objection, url: topic_objections_path do |f| %>
+<%= form_for @objection, url: (@objection.persisted? ? objection_path : topic_objections_path) do |f| %>
   <%= render 'site/error_messages', object: f.object %>
   <div class='field mt-2'>
     <%= f.text_area :body %>
   </div>
-  <%= f.submit t('.object'), class: 'btn btn-primary' %>
-  <%= link_to 'Cancel', :back, class: 'btn btn-secondary cancel-btn' %>
+  <%= f.submit (@objection.persisted? ? t('.update') : t('.object')), class: 'btn btn-primary' %>
+  <%= link_to 'Cancel', (@objection.persisted? ? user_objections_path(current_user) : topic_path(@topic)), class: 'btn btn-secondary cancel-btn' %>
 <% end %>
 

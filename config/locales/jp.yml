@@ -41,6 +41,7 @@ jp:
   objections:
     form:
       object: 'Object'
+      update: 'アップデート'
   replies:
     form:
       reply: 'リプライ'
@@ -48,19 +49,14 @@ jp:
       topic: 'topic'
   site:
     are_you_sure: 'Are you sure?'
-    bumped_topics: 'Topics I moved forward'
     confirm_password: '変更を確認するため現在のパスワードが必要です'
-    edit_profile: 'プロフィールを変更'
     email: 'メールアドレス'
     friends: 'フレンド'
     have_account: 'すでにアカウントをお持ちの場合ですか？'
-    helpful_replies: 'Replies I found helpful'
     leave_blank_if_no_change: 'leave blank if you do not want to change it'
-    me: 'Me'
     minimum_characters: 'characters minimum'
     name: '名前'
     no_account: "アカウントをお持ちでないですか?"
-    not_helpful_replies: 'Replies I found not helpful'
     password: 'パスワード'
     remember_me: 'Remember Me'
     the_gods: '続く神々が私たちを前進させます。'
@@ -80,12 +76,21 @@ jp:
       sign_out: 'サインアウト'
       sign_up: 'サインアップ'
       update: 'アップデート'
+    menus:
+      bumped_topics: 'Topics I moved forward'
+      edit_profile: 'プロフィールを変更'
+      helpful_replies: 'Replies I found helpful'
+      me: 'Me'
+      not_helpful_replies: 'Replies I found not helpful'
+      objected_topics: 'Topics I found objectionable'
   topics:
     form:
       anonymous: '名無し'
       post_to_public: 'Discuss!'
       tag_examples: 'File Under (for example: "restaurants, bargains")'
       update_topic: 'アップデート'
+    topic:
+      my_objection: 'My Objection'
   users:
     show:
       friend_heading: 'Talk to your friends!'
