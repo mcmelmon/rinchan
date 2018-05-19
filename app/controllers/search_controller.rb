@@ -9,7 +9,7 @@ class SearchController < ApplicationController
       raw_results = PgSearch.multisearch(params[:search]).paginate(page: params[:page])
       @results = []
 
-      if @results.present?
+      if raw_results.present?
         raw_results.each do |raw|
           case raw.searchable_type
           when 'Topic'
