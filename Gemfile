@@ -7,6 +7,7 @@ ruby '2.5.1'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'activeadmin'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.1'
 gem 'bootstrap-will_paginate', '1.0.0'
