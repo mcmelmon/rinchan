@@ -26,6 +26,14 @@ jp:
         unlock_token: 'ロック解除用トークン'
         updated_at: '更新日'
     models:
+      bulletin: 'Bulletin'
+      bump: 'Bump'
+      demurral: 'Demurral'
+      objection: 'Objection'
+      reply: 'Reply'
+      tag: 'Tag'
+      thank: 'Thank'
+      topic: 'Topic'
       user: 'ユーザ'
   bulletins:
     form:
