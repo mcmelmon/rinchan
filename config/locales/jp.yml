@@ -1,4 +1,12 @@
 jp:
+  active_admin:
+    devise:
+      email:
+        title: 'メールアドレス'
+      login:
+        submit: 'ログイン'
+      password:
+        title: 'パスワード'
   activerecord:
     attributes:
       user:
@@ -9,7 +17,7 @@ jp:
         current_password: '現在のパスワード'
         current_sign_in_at: '現在のログイン時刻'
         current_sign_in_ip: '現在のログインIPアドレス'
-        email: 'Eメール'
+        email: 'メールアドレス'
         encrypted_password: '暗号化パスワード'
         failed_attempts: '失敗したログイン試行回数'
         last_sign_in_at: '最終ログイン時刻'
@@ -76,9 +84,9 @@ jp:
         subject: 'こんにちは！'
         user_subject: 'こんにちは！メールアドレスを確認してください'
       email_changed:
-        greeting: 
-        message: 
-        subject: 
+        greeting:
+        message:
+        subject:
       password_change:
         greeting: '%{recipient}様'
         message: 'パスワードが再設定されたことを通知します。'
@@ -217,6 +225,13 @@ jp:
       me: 'Me'
       not_helpful_replies: 'Replies I found not helpful'
       objected_topics: 'Topics I found objectionable'
+  time:
+    am: 'a.m.'
+    formats:
+      default: ! '%a, %d %b %Y %H:%M:%S %z'
+      long: ! '%B %d, %Y %H:%M'
+      short: ! '%d %b %H:%M'
+    pm: 'p.m.'
   topics:
     form:
       anonymous: '名無し'
