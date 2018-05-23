@@ -1,5 +1,6 @@
 jp:
   active_admin:
+    delete: '削除'
     devise:
       email:
         title: 'メールアドレス'
@@ -7,6 +8,8 @@ jp:
         submit: 'ログイン'
       password:
         title: 'パスワード'
+    edit: '編集'
+    view: 'view'
   activerecord:
     attributes:
       user:
@@ -228,9 +231,9 @@ jp:
   time:
     am: 'a.m.'
     formats:
-      default: ! '%a, %d %b %Y %H:%M:%S %z'
-      long: ! '%B %d, %Y %H:%M'
-      short: ! '%d %b %H:%M'
+      default: '%a, %d %b %Y %H:%M:%S %z'
+      long: '%y-%m-%d, %H:%M'
+      short: '%y-%m-%d'
     pm: 'p.m.'
   topics:
     form:
