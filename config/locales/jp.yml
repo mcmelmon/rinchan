@@ -9,6 +9,15 @@ jp:
       password:
         title: 'パスワード'
     edit: '編集'
+    filters:
+      buttons:
+        clear: 'clear filters'
+        filter: 'filter'
+      predicates:
+        contains: 'contains'
+        ends_with: 'ends with'
+        equals: 'equals'
+        starts_with: 'starts with'
     view: 'view'
   activerecord:
     attributes:
