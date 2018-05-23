@@ -1,5 +1,7 @@
 jp:
   active_admin:
+    batch_actions:
+      button_label: 'Batch Actions'
     delete: '削除'
     devise:
       email:
@@ -8,6 +10,7 @@ jp:
         submit: 'ログイン'
       password:
         title: 'パスワード'
+    download: 'Download'
     edit: '編集'
     filters:
       buttons:
@@ -18,6 +21,10 @@ jp:
         ends_with: 'ends with'
         equals: 'equals'
         starts_with: 'starts with'
+    logout: 'サインアウト'
+    pagination:
+      one: 'one'
+    powered_by: 'powered by Active Admin'
     view: 'view'
   activerecord:
     attributes:
