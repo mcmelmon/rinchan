@@ -2,6 +2,12 @@ jp:
   active_admin:
     batch_actions:
       button_label: 'Batch Actions'
+    blank_slate:
+      content: 'Nothing here yet'
+    dashboard: 'Dashboard'
+    dashboard_welcome:
+      call_to_action: "To add dashboard sections, checkout 'app/admin/dashboard.rb'"
+      welcome: 'Welcome to Active Admin. This is the default dashboard page.'
     delete: '削除'
     devise:
       email:
@@ -255,7 +261,7 @@ jp:
     form:
       anonymous: '名無し'
       post_to_public: 'Discuss!'
-      tag_examples: "File Under (for example: 'restaurants, bargains')"
+      tag_examples: "#Hashtags"
       update_topic: 'アップデート'
     topic:
       my_objection: 'My Objection'

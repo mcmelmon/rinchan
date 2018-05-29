@@ -49,7 +49,7 @@ class TopicsController < ApplicationController
     def tag_topic
       return unless params[:tags].present?
       @topic.clear_tags
-      params[:tags].split(',').collect(&:lstrip).each do |name|
+      params[:tags].gsub(/\#/, ',').split(',').collect{|tag| tag.strip}.reject(&:blank?).each do |name|
         @topic.tags.create(name: name, user: current_user)
       end
     end
