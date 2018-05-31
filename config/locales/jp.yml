@@ -261,8 +261,10 @@ jp:
     form:
       anonymous: '名無し'
       post_to_public: 'Discuss!'
+      remove_image: 'Remove Image'
       tag_examples: "#Hashtags"
       update_topic: 'アップデート'
+      upload_image: 'Upload Image'
     topic:
       my_objection: 'My Objection'
   users:

@@ -1,4 +1,7 @@
 <div class='mb-4' id='topic-<%= topic.id %>'>
+  <% if topic.image_url.present? %>
+    <div class='attached-image mb-2 mt-2'><%= image_tag(topic.image_url.to_s) %></div>
+  <% end %>
   <p>
     <span><%= topic.subject.truncate(64) %></span>
     <span><%= link_to '(view)', topic_path(topic) %></span>

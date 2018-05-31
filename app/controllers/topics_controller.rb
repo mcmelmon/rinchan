@@ -36,7 +36,7 @@ class TopicsController < ApplicationController
 
   private
     def topic_params
-      params.require(:topic).permit(:subject).tap do |clean_params|
+      params.require(:topic).permit(:image, :image_cache, :remove_image, :subject).tap do |clean_params|
         clean_params[:subject] = Rails::Html::FullSanitizer.new.sanitize(clean_params[:subject])
       end
     end
