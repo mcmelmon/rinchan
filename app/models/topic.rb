@@ -8,6 +8,8 @@ class Topic < ApplicationRecord
   has_many :bumps, inverse_of: :topic, dependent: :destroy
   has_many :objections, inverse_of: :topic, dependent: :destroy
 
+  mount_uploader :image, ImageUploader
+
   default_scope -> { order(updated_at: :desc) }
 
   validates_presence_of :subject

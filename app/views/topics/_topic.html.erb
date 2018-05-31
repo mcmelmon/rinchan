@@ -1,4 +1,7 @@
 <div class='mb-4' id='topic-<%= topic.id %>'>
+  <% if topic.image_url.present? %>
+    <div class='attached-image mb-2 mt-2'><%= image_tag(topic.image_url.to_s) %></div>
+  <% end %>
   <div class='timestamp'><%= time_ago_in_words(topic.updated_at) %></div>
   <p><%= topic.subject %></p>
   <div class='row'>
