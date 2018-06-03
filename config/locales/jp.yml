@@ -70,17 +70,17 @@ jp:
       user: 'ユーザ'
   bulletins:
     form:
-      post_to_friends: 'To Friends'
+      post_to_friends: '友達に'
       update_bulletin: 'アップデート'
   datetime:
     distance_in_words:
-      one: '1日前'
-      x_days: '%{count} 数日前'
+      one: "1日前"
+      x_days: "%{count} 日前"
       less_than_x_minutes:
         one: '一分未満'
       x_minutes:
-        one: '1分前'
-        other: '%{count} 数分前'
+        one: "1分前"
+        other: "%{count} 分前"
       about_x_hours:
         one: '約1時間'
         other: 'about %{count} 時間前'
@@ -197,6 +197,14 @@ jp:
       not_saved:
         one: 'エラーが発生したため %{resource} は保存されませんでした。'
         other: '%{count} 件のエラーが発生したため %{resource} は保存されませんでした。'
+        user_subject: 'メールアドレスを確認してください'
+      reset_password_instructions:
+        subject: 'パスワードをリセット'
+    sessions:
+      user:
+        signed_in: 'サインインしています'
+      admin:
+        signed_in: 'こんにちは'
   home:
     index:
       recent_topics: '最近'
@@ -204,7 +212,7 @@ jp:
       topics: '話題'
       topics_with_activity: 'アクティビティ'
       welcome_heading: 'いらっしゃいませ!'
-      what_we_do: '家庭から学校まで、そして世界に出て行くと、すべての停留所が新しいスタートです. 途中で質問をしないと、答えが欠落します!'
+      what_we_do: "質問しよう！答えを得ることと同じぐらい価値があるから。"
   objections:
     form:
       object: '異議'
@@ -213,31 +221,31 @@ jp:
     form:
       reply: 'リプライ'
     reply:
-      topic: 'topic'
+      topic: 'トピック'
   site:
-    are_you_sure: 'Are you sure?'
+    are_you_sure: '本当にいいですか？'
     confirm_password: '変更を確認するため現在のパスワードが必要です'
     email: 'メールアドレス'
     friends: 'フレンド'
     have_account: 'すでにアカウントをお持ちの場合ですか？'
-    leave_blank_if_no_change: 'leave blank if you do not want to change it'
-    minimum_characters: 'characters minimum'
+    leave_blank_if_no_change: '変更しない場合、入力不必要'
+    minimum_characters: '文字数制限'
     name: '名前'
     no_account: 'アカウントをお持ちでないですか?'
     password: 'パスワード'
-    remember_me: 'Remember Me'
+    remember_me: '覚える'
     the_gods: '続く神々が私たちを前進させます。'
     actions:
-      bump: 'bump'
+      bump: 'バンプ'
       delete: '削除'
       edit: '編集'
       forgot_password: 'パスワードを忘れました'
-      helpful: 'this was helpful!'
-      not_helpful: 'this was not helpful'
-      object: 'object'
-      remove_bump: 'remove bump'
-      remove_demurral: 'remove demurral'
-      remove_thank: 'remove thank'
+      helpful: 'すごい助かった'
+      not_helpful: '少し助かった'
+      object: 'オブジェクト'
+      remove_bump: 'バンプ削除'
+      remove_demurral: '異議削除'
+      remove_thank: '感謝削除'
       reply: '応答'
       sign_in: 'サインイン'
       sign_out: 'サインアウト'
@@ -246,10 +254,10 @@ jp:
     menus:
       bumped_topics: 'Topics I moved forward'
       edit_profile: 'プロフィールを変更'
-      helpful_replies: 'Replies I found helpful'
-      me: 'Me'
-      not_helpful_replies: 'Replies I found not helpful'
-      objected_topics: 'Topics I found objectionable'
+      helpful_replies: 'すごく助かった返信'
+      me: '我輩'
+      not_helpful_replies: '少し助かった返信'
+      objected_topics: 'オブジェクト'
   time:
     am: 'a.m.'
     formats:
@@ -260,16 +268,15 @@ jp:
   topics:
     form:
       anonymous: '名無し'
-      post_to_public: 'Discuss!'
-      remove_image: 'Remove Image'
-      tag_examples: "#Hashtags"
+      post_to_public: '話そう！'
+      tag_examples: '#Hashtags'
       update_topic: 'アップデート'
       upload_image: 'Upload Image'
     topic:
       my_objection: 'My Objection'
   users:
     show:
-      friend_heading: 'Talk to your friends!'
-      my_public_discussions: 'My Public Discussions'
-      my_public_replies: 'My Public Replies'
-      public_heading: 'Start a public discussion!'
+      friend_heading: '友達にシェア'
+      my_public_discussions: '自分のオープンディスカッション'
+      my_public_replies: 'オープンリプライ'
+      public_heading: 'オープンディスカッションを始める'
