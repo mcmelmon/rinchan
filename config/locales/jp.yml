@@ -269,7 +269,7 @@ jp:
     form:
       anonymous: '名無し'
       post_to_public: '話そう！'
-      tag_examples: '#Hashtags'
+      tag_examples: 'ハッシュタグ'
       update_topic: 'アップデート'
       upload_image: 'Upload Image'
     topic:
