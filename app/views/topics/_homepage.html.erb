@@ -3,7 +3,7 @@
     <div class='attached-image mb-2 mt-2'><%= image_tag(topic.image_url.to_s) %></div>
   <% end %>
   <p>
-    <span><%= topic.subject.truncate(64) %></span>
+    <span><%= topic.subject.truncate(256) %></span>
     <span><%= link_to '(view)', topic_path(topic) %></span>
   </p>
   <div class='row'>
