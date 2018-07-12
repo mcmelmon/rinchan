@@ -8,19 +8,43 @@
   <p><%= reply.body %></p>
   <div class='actions mb-4'>
     <% if reply_belongs_to_current_user?(reply) %>
-      <span><%= link_to t('site.actions.edit'), edit_reply_path(reply) %></span> |
-      <span><%= link_to t('site.actions.delete'), reply, method: :delete, data: { confirm: t('site.are_you_sure') } %></span>
+      <span>
+        <%= link_to edit_reply_path(reply) do %>
+          <i class='fas fa-edit'></i>
+        <% end %>
+      </span>
+      <span>
+        <%= link_to reply, method: :delete, data: { confirm: t('site.are_you_sure') } do %>
+          <i class='fas fa-trash-alt'></i>
+        <% end %>
+      </span>
     <% else %>
       <% unless current_user_thanked_reply?(reply) || current_user_demurred_to_reply?(reply) %>
-        <span><%= link_to t('site.actions.helpful'), reply_thanks_path(reply), method: :post %></span> | 
-        <span><%= link_to t('site.actions.not_helpful'), reply_demurrals_path(reply), method: :post %></span>
+        <span>
+          <%= link_to reply_thanks_path(reply), method: :post do %>
+            <i class='far fa-thumbs-up'></i>
+          <% end %>
+        </span>
+        <span>
+          <%= link_to reply_demurrals_path(reply), method: :post do %>
+            <i class='far fa-thumbs-down'></i>
+          <% end %>
+        </span>
       <% end %>
       <% if current_user_thanked_reply?(reply) %>
         <% thank = current_user.thanks.find_by(reply_id: reply.id) %>
-        <span><%= link_to t('site.actions.remove_thank'), thank, method: :delete, data: { confirm: t('site.are_you_sure') } %></span>
+        <span>
+          <%= link_to thank, method: :delete, data: { confirm: t('site.are_you_sure') } do %>
+            <i class='fas fa-thumbs-up'></i>
+          <% end %>
+        </span>
       <% elsif current_user_demurred_to_reply?(reply) %>
         <% demurral = current_user.demurrals.find_by(reply_id: reply.id) %>
-        <span><%= link_to t('site.actions.remove_demurral'), demurral, method: :delete, data: { confirm: t('site.are_you_sure') } %></span>
+        <span>
+          <%= link_to demurral, method: :delete, data: { confirm: t('site.are_you_sure') } do %>
+            <i class='fas fa-thumbs-down'></i>
+          <% end %>
+        </span>
       <% end %>
     <% end %>
   </div>

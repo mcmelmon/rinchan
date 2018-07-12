@@ -234,7 +234,7 @@ jp:
     no_account: 'アカウントをお持ちでないですか?'
     password: 'パスワード'
     remember_me: '覚える'
-    the_gods: '続く神々が私たちを前進させます。'
+    the_gods: 'the gods that follow lead us forward'
     actions:
       bump: 'バンプ'
       delete: '削除'
@@ -280,3 +280,6 @@ jp:
       my_public_discussions: '自分のオープンディスカッション'
       my_public_replies: 'オープンリプライ'
       public_heading: 'オープンディスカッションを始める'
+  will_paginate:
+    next_label: 'next page'
+    previous_label: 'previous page'
