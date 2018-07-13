@@ -25,10 +25,19 @@ class RepliesController < ApplicationController
 
   def new
     @reply = @topic.replies.build
+    if @original.present?
+      @reply.original_id = @original.id
+      @reply.body = "'#{@original.body}'"
+    end
   end
 
   def show
     @reply = Reply.find_by(id: params[:id])
+    if @reply.blank?
+      redirect_to root_path
+      return
+    end
+    @show_replies = true
   end
 
   def update
@@ -42,7 +51,7 @@ class RepliesController < ApplicationController
 
   private
     def reply_params
-      params.require(:reply).permit(:body).tap do |clean_params|
+      params.require(:reply).permit(:body, :original_id).tap do |clean_params|
         clean_params[:body] = Rails::Html::FullSanitizer.new.sanitize(clean_params[:body])
       end
     end
@@ -54,5 +63,6 @@ class RepliesController < ApplicationController
 
     def set_topic
       @topic = params[:topic_id].present? ? Topic.find_by(id: params[:topic_id]) : Reply.find_by(id: params[:id]).topic
+      @original = params[:reply_id].present? ? Reply.find_by(id: params[:reply_id]) : nil
     end
 end

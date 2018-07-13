@@ -21,6 +21,10 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find_by(id: params[:id])
+    if @topic.blank?
+      redirect_to root_path
+      return
+    end
     @replies = @topic.replies.order(updated_at: :desc).paginate(page: params[:page])
   end
 
