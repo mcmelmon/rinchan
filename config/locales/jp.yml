@@ -221,6 +221,7 @@ jp:
     form:
       reply: 'リプライ'
     reply:
+      follow_up: 'Follow Ups'
       topic: 'トピック'
   site:
     are_you_sure: '本当にいいですか？'
@@ -272,6 +273,8 @@ jp:
       tag_examples: 'ハッシュタグ'
       update_topic: 'アップデート'
       upload_image: 'Upload Image'
+    show:
+      replies: 'Replies'
     topic:
       my_objection: 'My Objection'
   users:
