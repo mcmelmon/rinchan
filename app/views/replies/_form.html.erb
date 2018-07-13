@@ -7,6 +7,7 @@
     <label><%= t('.anonymous') %></label>
     <%= f.check_box :anonymous %>
   </div>
+  <%= f.hidden_field :original_id %>
   <%= f.submit (@reply.persisted? ? 'Update' : t('.reply')), class: 'btn btn-primary' %>
   <%= link_to 'Cancel', :back, class: 'btn btn-secondary cancel-btn' %>
 <% end %>

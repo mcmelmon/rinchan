@@ -1,12 +1,20 @@
 <div class='reply mb-4' id='reply-<%= reply.id %>'>
   <div>
-    <span class='timestamp'><%= time_ago_in_words(reply.updated_at) %></span>
-    <% if @user.present? %>
+    <span class='timestamp'><%= reply.updated_at.to_formatted_s(:short) %></span>
+    <% if @show_replies %>
        | <span><%= link_to t('.topic'), topic_path(reply.topic) %></span>
     <% end %>
   </div>
-  <p><%= reply.body %></p>
+  <p><%= simple_format(reply.body) %></p>
   <div class='actions mb-4'>
+    <%= link_to new_topic_reply_path(topic_id: reply.topic.id, reply_id: reply.id) do %>
+      <i class='far fa-comment'></i>
+    <% end %>
+    <% if reply.original.present? %>
+      <%= link_to reply_path(reply.original) do %>
+        <i class='fas fa-undo'></i>
+      <% end %>
+    <% end %>
     <% if reply_belongs_to_current_user?(reply) %>
       <span>
         <%= link_to edit_reply_path(reply) do %>
@@ -48,4 +56,15 @@
       <% end %>
     <% end %>
   </div>
+  <% if @show_replies && reply.replies.any? %>
+    <h4 class='mt-4'>Follow Ups</h4>
+    <div class='ml-4 mt-4'>
+      <% reply.replies.each do |follow_up| %>
+        <div class='mb-4'>
+          <div><span class='timestamp'><%= follow_up.updated_at.to_formatted_s(:short) %></span></div>
+          <p><%= simple_format(follow_up.body) %></p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

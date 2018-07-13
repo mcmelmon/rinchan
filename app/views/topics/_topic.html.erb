@@ -2,8 +2,8 @@
   <% if topic.image_url.present? %>
     <div class='attached-image mb-2 mt-2'><%= image_tag(topic.image_url.to_s) %></div>
   <% end %>
-  <div class='timestamp'><%= time_ago_in_words(topic.updated_at) %></div>
-  <p><%= topic.subject %></p>
+  <div class='timestamp'><%= topic.updated_at.to_formatted_s(:short) %></div>
+  <p><%= simple_format(topic.subject) %></p>
   <div class='row'>
     <div class='col-md-8'>
       <% topic.tags.each do |tag| %>
