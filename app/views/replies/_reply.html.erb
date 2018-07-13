@@ -57,7 +57,7 @@
     <% end %>
   </div>
   <% if @show_replies && reply.replies.any? %>
-    <h4 class='mt-4'>Follow Ups</h4>
+    <h4 class='mt-4'><%= t('.follow_up') %></h4>
     <div class='ml-4 mt-4'>
       <% reply.replies.each do |follow_up| %>
         <div class='mb-4'>

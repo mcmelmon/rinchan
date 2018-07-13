@@ -2,7 +2,7 @@
   <div class='topic'><%= render partial: 'topic', locals: { topic: @topic } %></div>
 
   <% if @replies.any? %>
-    <h4 class='mt-4'>Replies</h4>
+    <h4 class='mt-4'><%= t('.replies') %></h4>
     <div class='ml-4 mt-4'><%= render partial: 'replies/list' %></div>
   <% end %>
 </div>
