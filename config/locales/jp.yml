@@ -85,7 +85,7 @@ jp:
         one: '約1時間'
         other: '約 %{count} 時間前'
       about_x_months:
-        one:　'1ヶ月'
+        one: '1ヶ月'
         other: "約 %{count} ヶ月前"
   devise:
     confirmations:
