@@ -1,8 +1,9 @@
 ActiveAdmin.register User do
-  permit_params :email
+  permit_params :email, :is_active, :name, :password, :password_confirmation
 
   index do |idx|
     column :email
+    column :name
     column t('activerecord.models.topic') do |user|
       div do
         user.topics.count
@@ -45,6 +46,8 @@ ActiveAdmin.register User do
       f.input :email
       f.input :password
       f.input :password_confirmation
+      f.input :name
+      f.input :is_active
     end
     f.actions
   end

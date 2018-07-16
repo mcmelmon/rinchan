@@ -12,4 +12,22 @@ class User < ApplicationRecord
   has_many :bumps, inverse_of: :user, dependent: :destroy
   has_many :thanks, inverse_of: :user, dependent: :destroy
   has_many :demurrals, inverse_of: :user, dependent: :destroy
+
+  validates_uniqueness_of :email
+  validate :only_one_guest
+
+  def self.guest
+    User.find_by(name: 'guest')
+  end
+
+  def active_for_authentication?
+    super and self.is_active?
+  end
+
+  private
+    def only_one_guest
+      if name == 'guest' && User.find_by(name: 'guest').present?
+        errors.add(:name, 'that name is not available')
+      end
+    end
 end

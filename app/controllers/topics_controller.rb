@@ -1,15 +1,17 @@
 class TopicsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, only: [:destroy, :edit, :update]
   before_action :correct_user, only: [:destroy, :edit, :update]
   after_action :tag_topic, only: [:create, :update]
 
   def create
-    @topic = current_user.topics.build(topic_params)
-    if @topic.save
-      flash[:notice] = 'Discussion created!'
+    user = current_user || User.guest
+    @topic = user.topics.build(topic_params)
+    if verify_recaptcha(model: @topic) && @topic.save
+      flash[:notice] = t('.discussion_created')
       redirect_to topic_path(@topic)
     else
-      redirect_to root_path
+      flash[:error] = t('site.flash_problem')
+      redirect_to current_user.present? ? user_path(current_user) : root_path
     end
   end
 
@@ -33,7 +35,7 @@ class TopicsController < ApplicationController
       flash[:notice] = 'Discussion updated.'
       redirect_to user_path(current_user)
     else
-      flash[:error] = 'There was a problem.'
+      flash[:error] = t('site.flash_problem')
       redirect_to user_path(current_user)
     end
   end
@@ -54,7 +56,7 @@ class TopicsController < ApplicationController
       return unless params[:tags].present?
       @topic.clear_tags
       params[:tags].gsub(/\#/, ',').split(',').collect{|tag| tag.strip}.reject(&:blank?).each do |name|
-        @topic.tags.create(name: name, user: current_user)
+        @topic.tags.create(name: name, user: current_user || User.guest)
       end
     end
 end

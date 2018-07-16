@@ -1,5 +1,5 @@
 ActiveAdmin.register Reply do
-  permit_params :anonymous, :body, :hide
+  permit_params :anonymous, :body, :hide, :user_id
 
   index do |idx|
     column t('activerecord.models.user') do |reply|
@@ -36,6 +36,7 @@ ActiveAdmin.register Reply do
 
   form do |f|
     f.inputs do
+      f.input :user, as: :select, collection: User.pluck(:email, :id).push(reply.persisted? ? [f.object.user.email, f.object.user.id] : []).uniq.sort
       f.input :anonymous
       f.input :hide
       f.input :body
