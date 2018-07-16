@@ -1,5 +1,5 @@
 ActiveAdmin.register Topic do
-  permit_params :anonymous, :feature, :hide, :subject
+  permit_params :anonymous, :feature, :hide, :subject, :user_id
 
   index do |idx|
     column t('activerecord.models.user') do |topic|
@@ -31,6 +31,7 @@ ActiveAdmin.register Topic do
 
   form do |f|
     f.inputs do
+      f.input :user, as: :select, collection: User.pluck(:email, :id).push(topic.persisted? ? [f.object.user.email, f.object.user.id] : []).uniq.sort
       f.input :anonymous
       f.input :feature
       f.input :hide

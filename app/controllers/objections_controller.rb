@@ -35,7 +35,7 @@ class ObjectionsController < ApplicationController
     if @objection.update(objection_params)
       flash[:notice] = 'Objection updated.'
     else
-      flash[:alert] = 'There was a problem.'
+      flash[:error] = t('site.flash_problem')
     end
     redirect_to user_objections_path(current_user)
   end

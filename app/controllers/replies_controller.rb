@@ -1,15 +1,15 @@
 class RepliesController < ApplicationController
   before_action :correct_user, only: [:destroy, :edit, :update]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:destroy, :edit, :update]
   before_action :set_topic
 
   def create
     @reply = @topic.replies.build(reply_params)
-    @reply.user = current_user
-    if @reply.save
-      flash[:notice] = 'Reply created!'
+    @reply.user = current_user || User.guest
+    if verify_recaptcha(model: @reply) && @reply.save
+      flash[:notice] = t('.reply_created')
     else
-      flash[:error] = 'There was a problem.'
+      flash[:error] = t('site.flash_problem')
     end
     redirect_to topic_path(@topic)
   end
@@ -44,7 +44,7 @@ class RepliesController < ApplicationController
     if @reply.update(reply_params)
       flash[:notice] = 'Reply updated!'
     else
-      flash[:error] = 'There was a problem.'
+      flash[:error] = t('site.flash_problem')
     end
     redirect_to topic_path(@topic)
   end
