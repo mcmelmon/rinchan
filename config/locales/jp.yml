@@ -4,7 +4,7 @@ jp:
       button_label: 'Batch Actions'
     blank_slate:
       content: 'Nothing here yet'
-    dashboard: 'Dashboard'
+    dashboard: 'ダッシュボード'
     dashboard_welcome:
       call_to_action: "To add dashboard sections, checkout 'app/admin/dashboard.rb'"
       welcome: 'Welcome to Active Admin. This is the default dashboard page.'
@@ -16,12 +16,12 @@ jp:
         submit: 'ログイン'
       password:
         title: 'パスワード'
-    download: 'Download'
+    download: 'ダウンロード'
     edit: '編集'
     filters:
       buttons:
-        clear: 'clear filters'
-        filter: 'filter'
+        clear: 'フィルターをクリアー'
+        filter: 'フィルター'
       predicates:
         contains: 'contains'
         ends_with: 'ends with'
@@ -83,7 +83,10 @@ jp:
         other: "%{count} 分前"
       about_x_hours:
         one: '約1時間'
-        other: 'about %{count} 時間前'
+        other: '約 %{count} 時間前'
+      about_x_months:
+        one:　'1ヶ月'
+        other: "約 %{count} ヶ月前"
   devise:
     confirmations:
       confirmed: 'アカウントを登録しました。'
@@ -244,21 +247,21 @@ jp:
       helpful: 'すごい助かった'
       not_helpful: '少し助かった'
       object: 'オブジェクト'
-      remove_bump: 'バンプ削除'
-      remove_demurral: '異議削除'
-      remove_thank: '感謝削除'
+      remove_bump: 'いいね削除'
+      remove_demurral: '異議あり削除'
+      remove_thank: 'いいね削除'
       reply: '応答'
       sign_in: 'サインイン'
       sign_out: 'サインアウト'
       sign_up: 'サインアップ'
       update: 'アップデート'
     menus:
-      bumped_topics: 'Topics I moved forward'
-      edit_profile: 'プロフィールを変更'
+      bumped_topics: 'いいトピック'
+      edit_profile: 'プロフィールを編集'
       helpful_replies: 'すごく助かった返信'
-      me: '我輩'
+      me: '自分'
       not_helpful_replies: '少し助かった返信'
-      objected_topics: 'オブジェクト'
+      objected_topics: '良くないトピック'
   time:
     am: 'a.m.'
     formats:
@@ -272,11 +275,11 @@ jp:
       post_to_public: '話そう！'
       tag_examples: 'ハッシュタグ'
       update_topic: 'アップデート'
-      upload_image: 'Upload Image'
+      upload_image: '写真をアップロード'
     show:
       replies: 'Replies'
     topic:
-      my_objection: 'My Objection'
+      my_objection: '自分のオブジェクト'
   users:
     show:
       friend_heading: '友達にシェア'
@@ -284,5 +287,5 @@ jp:
       my_public_replies: 'オープンリプライ'
       public_heading: 'オープンディスカッションを始める'
   will_paginate:
-    next_label: 'next page'
-    previous_label: 'previous page'
+    next_label: '次のページ'
+    previous_label: '前のページ'
