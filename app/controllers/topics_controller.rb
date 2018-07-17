@@ -44,6 +44,8 @@ class TopicsController < ApplicationController
     def topic_params
       params.require(:topic).permit(:image, :image_cache, :remove_image, :subject).tap do |clean_params|
         clean_params[:subject] = Rails::Html::FullSanitizer.new.sanitize(clean_params[:subject])
+        clean_params[:image] = nil unless current_user.present?
+        clean_params[:image_cache] = nil unless current_user.present?
       end
     end
 

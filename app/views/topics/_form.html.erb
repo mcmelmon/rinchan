@@ -7,18 +7,20 @@
     <label><%= t('.tag_examples') %></label><br />
     <%= text_field_tag :tags, @topic&.display_tags %>
   </div>
-  <% if @topic&.image_url.present? %>
-    <div class='attached-image mb-2'><%= image_tag(@topic.image_url.to_s) %></div>
-    <div class='mb-2'>
-      <%= f.check_box :remove_image, style: 'height:16px' %>
-      <label><%= t('.remove_image') %></label>
+  <% if current_user.present? %>
+    <% if @topic&.image_url.present? %>
+      <div class='attached-image mb-2'><%= image_tag(@topic.image_url.to_s) %></div>
+      <div class='mb-2'>
+        <%= f.check_box :remove_image, style: 'height:16px' %>
+        <label><%= t('.remove_image') %></label>
+      </div>
+    <% end %>
+    <div class='field mb-4'>
+      <label><%= t('.upload_image') %></label>
+      <%= f.file_field :image %>
+      <%= f.hidden_field :image_cache %>
     </div>
   <% end %>
-  <div class='field mb-4'>
-    <label><%= t('.upload_image') %></label>
-    <%= f.file_field :image %>
-    <%= f.hidden_field :image_cache %>
-  </div>
   <div class='field float-right'>
     <label><%= t('.anonymous') %></label>
     <%= f.check_box :anonymous %>

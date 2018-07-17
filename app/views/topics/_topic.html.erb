@@ -1,14 +1,16 @@
 <div class='mb-4' id='topic-<%= topic.id %>'>
-  <% if topic.image_url.present? %>
-    <div class='attached-image mb-2 mt-2'><%= image_tag(topic.image_url.to_s) %></div>
-  <% end %>
   <div>
     <span class='timestamp'><%= link_to topic.updated_at.to_formatted_s(:short), topic_path(topic) %></span>
     <% if topic.replies.any? && @topic.blank? %>
       <span> | <%= link_to t('.replies'), topic_path(topic) %>(<%= topic.replies.count %>)</span>
     <% end %>
   </div>
-  <p><%= simple_format(topic.subject) %></p>
+  <div>
+    <% if topic.image_url.present? %>
+      <div class='attached-image mb-2 mt-2'><%= link_to image_tag(topic.image_url.to_s), topic_path(topic) %></div>
+    <% end %>
+    <p class='the-topic'><%= topic.subject.truncate(256) %></p>
+  </div>
   <div class='row'>
     <div class='col-md-8'>
       <% topic.tags.each do |tag| %>
