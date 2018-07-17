@@ -64,7 +64,7 @@ jp:
       bump: 'Bump'
       demurral: 'Demurral'
       objection: 'Objection'
-      reply: 'Reply'
+      reply: 'リプライ'
       tag: 'Tag'
       thank: 'Thank'
       topic: 'Topic'
@@ -228,6 +228,7 @@ jp:
       reply: 'リプライ'
     reply:
       follow_up: 'Follow Ups'
+      reply: 'リプライ'
       topic: 'トピック'
   site:
     are_you_sure: '本当にいいですか？'
@@ -255,7 +256,7 @@ jp:
       remove_demurral: '異議あり削除'
       remove_thank: 'いいね削除'
       post_as_guest: 'ゲストとして質問する'
-      reply: '応答'
+      reply: 'リプライ'
       sign_in: 'サインイン'
       sign_out: 'サインアウト'
       sign_up: 'サインアップ'
@@ -283,12 +284,15 @@ jp:
       tag_examples: 'ハッシュタグ'
       update_topic: 'アップデート'
       upload_image: '写真をアップロード'
+    homepage:
+      replies: 'リプライ'
     new:
       public_heading: 'ゲストとして質問する'
     show:
       replies: 'リプライ'
     topic:
       my_objection: '自分のオブジェクト'
+      replies: 'リプライ'
   users:
     show:
       friend_heading: '友達にシェア'

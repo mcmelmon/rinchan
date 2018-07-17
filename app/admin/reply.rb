@@ -25,6 +25,11 @@ ActiveAdmin.register Reply do
         reply.demurrals.count
       end
     end
+    column t('activerecord.models.reply') do |reply|
+      div do
+        reply.replies.count
+      end
+    end
     column :created_at
     column :updated_at
     actions

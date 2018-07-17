@@ -21,6 +21,11 @@ ActiveAdmin.register Topic do
         topic.objections.count
       end
     end
+    column t('activerecord.models.reply') do |topic|
+      div do
+        topic.replies.count
+      end
+    end
     column :created_at
     column :updated_at
     actions
