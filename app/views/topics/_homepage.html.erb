@@ -2,9 +2,13 @@
   <% if topic.image_url.present? %>
     <div class='attached-image mb-2 mt-2'><%= image_tag(topic.image_url.to_s) %></div>
   <% end %>
-  <p>
-    <span class='the-topic'><%= link_to topic.subject.truncate(256), topic_path(topic) %></span>
-  </p>
+  <div>
+    <span class='timestamp'><%= link_to topic.updated_at.to_formatted_s(:short), topic_path(topic) %></span>
+    <% if topic.replies.any? %>
+      <span> | <%= link_to t('.replies'), topic_path(topic) %>(<%= topic.replies.count %>)</span>
+    <% end %>
+  </div>
+  <p><span class='the-topic'><%= topic.subject.truncate(256) %></span></p>
   <div class='row'>
     <div class='col-md-7'>
       <% topic.tags.each do |tag| %>

@@ -1,8 +1,11 @@
 <div class='reply mb-4' id='reply-<%= reply.id %>'>
   <div>
-    <span class='timestamp'><%= reply.updated_at.to_formatted_s(:short) %></span>
-    <% if @show_replies %>
+    <span class='timestamp'><%= link_to reply.updated_at.to_formatted_s(:short), reply_path(reply) %></span>
+    <% if @topic.blank? %>
        | <span><%= link_to t('.topic'), topic_path(reply.topic) %></span>
+    <% end %>
+    <% if reply.replies.any? && @reply.blank? %>
+      | <span><%= link_to t('.reply'), reply_path(reply) %>(<%= reply.replies.count %>)</span>
     <% end %>
   </div>
   <p><%= simple_format(reply.body) %></p>
