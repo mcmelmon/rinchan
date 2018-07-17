@@ -1,14 +1,13 @@
 class Topic < ApplicationRecord
   include PgSearch
   multisearchable :against => :subject
+  mount_uploader :image, ImageUploader
 
   belongs_to :user, inverse_of: :topics
   has_many :replies, dependent: :destroy
   has_many :tags, inverse_of: :topic, dependent: :destroy
   has_many :bumps, inverse_of: :topic, dependent: :destroy
   has_many :objections, inverse_of: :topic, dependent: :destroy
-
-  mount_uploader :image, ImageUploader
 
   default_scope -> { order(updated_at: :desc) }
 

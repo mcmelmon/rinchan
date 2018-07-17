@@ -1,14 +1,19 @@
 <div class='reply mb-4' id='reply-<%= reply.id %>'>
   <div>
     <span class='timestamp'><%= link_to reply.updated_at.to_formatted_s(:short), reply_path(reply) %></span>
-    <% if @topic.blank? %>
+    <% if @show_replies %>
        | <span><%= link_to t('.topic'), topic_path(reply.topic) %></span>
     <% end %>
     <% if reply.replies.any? && @reply.blank? %>
       | <span><%= link_to t('.reply'), reply_path(reply) %>(<%= reply.replies.count %>)</span>
     <% end %>
   </div>
-  <p><%= simple_format(reply.body) %></p>
+  <div>
+    <% if reply.image_url.present? %>
+      <div class='attached-image mb-2 mr-2 mt-2'><%= link_to image_tag(reply.image_url.to_s), reply_path(reply) %></div>
+    <% end %>
+    <div class='the-reply'><p><%= simple_format(reply.body) %></p></div>
+  </div>
   <div class='actions mb-4'>
     <%= link_to new_topic_reply_path(topic_id: reply.topic.id, reply_id: reply.id) do %>
       <i class='far fa-comment'></i>

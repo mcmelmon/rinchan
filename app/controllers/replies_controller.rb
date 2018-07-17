@@ -51,7 +51,7 @@ class RepliesController < ApplicationController
 
   private
     def reply_params
-      params.require(:reply).permit(:body, :original_id).tap do |clean_params|
+      params.require(:reply).permit(:body, :image, :image_cache, :original_id).tap do |clean_params|
         clean_params[:body] = Rails::Html::FullSanitizer.new.sanitize(clean_params[:body])
       end
     end
