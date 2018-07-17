@@ -1,6 +1,7 @@
 class Reply < ApplicationRecord
   include PgSearch
   multisearchable :against => :body
+  mount_uploader :image, ImageUploader
 
   belongs_to :user, inverse_of: :replies
   belongs_to :topic, inverse_of: :replies
