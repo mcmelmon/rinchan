@@ -154,7 +154,7 @@ jp:
       destroyed: 'アカウントを削除しました。またのご利用をお待ちしております。'
       edit:
         are_you_sure: '本当によろしいですか?'
-        cancel_my_account: 'アカウント削除'
+        cancel_my_account: 'アカウントをキャンセルする'
         currently_waiting_confirmation_for_email: '%{email} の確認待ち'
         leave_blank_if_you_don_t_want_to_change_it: '空欄のままなら変更しません'
         title: '%{resource}編集'
@@ -173,7 +173,7 @@ jp:
       already_signed_out: '既にログアウト済みです。'
       new:
         sign_in: 'ログイン'
-      signed_in: 'サインインしています。'
+      signed_in: 'ログインしています。'
       signed_out: 'ログアウトしました。'
     shared:
       links:
@@ -181,9 +181,9 @@ jp:
         didn_t_receive_confirmation_instructions: 'アカウント確認のメールを受け取っていませんか?'
         didn_t_receive_unlock_instructions: 'アカウントの凍結解除方法のメールを受け取っていませんか?'
         forgot_your_password: 'パスワードを忘れましたか?'
-        sign_in: 'ログイン'
+        sign_in: 'ログインする'
         sign_in_with_provider: '%{provider}でログイン'
-        sign_up: 'アカウント登録'
+        sign_up: 'アカウントを登録'
       minimum_password_length: '（%{count}字以上）'
     unlocks:
       new:
@@ -206,16 +206,16 @@ jp:
         subject: 'パスワードをリセット'
     sessions:
       user:
-        signed_in: 'サインインしています'
+        signed_in: 'ログインしています'
       admin:
         signed_in: 'こんにちは'
   home:
     index:
-      recent_topics: '最近'
+      recent_topics: '最近のトピック'
       reply_button: 'リプライ'
-      topics: '話題'
-      topics_with_activity: 'アクティビティ'
-      welcome_heading: 'いらっしゃいませ!'
+      topics: 'トピック'
+      topics_with_activity: '返信のあったトピック'
+      welcome_heading: 'ようこそ！'
       what_we_do: "質問しよう！答えを得ることと同じぐらい価値があるから。"
   objections:
     form:
@@ -223,7 +223,7 @@ jp:
       update: 'アップデート'
   replies:
     create:
-      reply_created: 'Reply created'
+      reply_created: 'リプライを作成しました'
     form:
       reply: 'リプライ'
     reply:
@@ -234,10 +234,10 @@ jp:
     are_you_sure: '本当にいいですか？'
     confirm_password: '変更を確認するため現在のパスワードが必要です'
     email: 'メールアドレス'
-    flash_problem: 'There was a problem.'
-    friends: 'フレンド'
+    flash_problem: '問題があります'
+    friends: '友達'
     have_account: 'すでにアカウントをお持ちの場合ですか？'
-    leave_blank_if_no_change: '変更しない場合、入力不必要'
+    leave_blank_if_no_change: '変更しない場合、空欄にしてください'
     minimum_characters: '文字数制限'
     name: '名前'
     no_account: 'アカウントをお持ちでないですか?'
@@ -245,7 +245,7 @@ jp:
     remember_me: '覚える'
     the_gods: 'the gods that follow lead us forward'
     actions:
-      bump: 'バンプ'
+      bump: 'いいね'
       delete: '削除'
       edit: '編集'
       forgot_password: 'パスワードを忘れました'
@@ -277,10 +277,10 @@ jp:
     pm: 'p.m.'
   topics:
     create:
-      discussion_created: 'Public discussion created.'
+      discussion_created: 'オープンディスカッションが作られました.'
     form:
       anonymous: '名無し'
-      post_to_public: '話そう！'
+      post_to_public: '投稿する'
       tag_examples: 'ハッシュタグ'
       update_topic: 'アップデート'
       upload_image: '写真をアップロード'
