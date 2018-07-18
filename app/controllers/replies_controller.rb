@@ -9,7 +9,7 @@ class RepliesController < ApplicationController
     if verify_recaptcha(model: @reply) && @reply.save
       flash[:notice] = t('.reply_created')
     else
-      flash[:error] = t('site.flash_problem')
+      flash[:error] = @reply.errors.messages.collect{|m| m[1]}
     end
     redirect_to topic_path(@topic)
   end
@@ -44,7 +44,7 @@ class RepliesController < ApplicationController
     if @reply.update(reply_params)
       flash[:notice] = 'Reply updated!'
     else
-      flash[:error] = t('site.flash_problem')
+      flash[:error] = @reply.errors.messages.collect{|m| m[1]}
     end
     redirect_to topic_path(@topic)
   end

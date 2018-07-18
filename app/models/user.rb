@@ -16,6 +16,9 @@ class User < ApplicationRecord
   validates_uniqueness_of :email
   validate :only_one_guest
 
+  scope :civilians, -> { where(editor: false) }
+  scope :editors, -> { where(editor: true) }
+
   def self.guest
     User.find_by(name: 'guest')
   end

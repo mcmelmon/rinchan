@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :email, :is_active, :name, :password, :password_confirmation
+  permit_params :editor, :email, :is_active, :name, :password, :password_confirmation
 
   index do |idx|
     column :email
@@ -34,7 +34,8 @@ ActiveAdmin.register User do
         user.demurrals.count
       end
     end
-    column :created_at
+    column :editor
+    column :is_active
     column :updated_at
     actions
   end
@@ -44,10 +45,9 @@ ActiveAdmin.register User do
   form do |f|
     f.inputs do
       f.input :email
-      f.input :password
-      f.input :password_confirmation
       f.input :name
       f.input :is_active
+      f.input :editor
     end
     f.actions
   end

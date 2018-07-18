@@ -10,7 +10,7 @@ class TopicsController < ApplicationController
       flash[:notice] = t('.discussion_created')
       redirect_to topic_path(@topic)
     else
-      flash[:error] = t('site.flash_problem')
+      flash[:error] = @topic.errors.messages.collect{|m| m[1]}
       redirect_to current_user.present? ? user_path(current_user) : root_path
     end
   end
@@ -35,7 +35,7 @@ class TopicsController < ApplicationController
       flash[:notice] = 'Discussion updated.'
       redirect_to user_path(current_user)
     else
-      flash[:error] = t('site.flash_problem')
+      flash[:error] = @topic.errors.messages.collect{|m| m[1]}
       redirect_to user_path(current_user)
     end
   end
