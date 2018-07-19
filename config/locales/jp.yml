@@ -68,7 +68,7 @@ jp:
       tag: 'Tag'
       thank: 'Thank'
       topic: 'Topic'
-      user: 'ユーザ'
+      user: 'ユーザー'
   bulletins:
     form:
       post_to_friends: '友達に'
@@ -227,11 +227,11 @@ jp:
     form:
       reply: 'リプライ'
     reply:
-      follow_up: 'Follow Ups'
+      follow_up: 'このリプライに対するリプライ'
       reply: 'リプライ'
       topic: 'トピック'
   site:
-    are_you_sure: '本当にいいですか？'
+    are_you_sure: '本当にいいですか'
     confirm_password: '変更を確認するため現在のパスワードが必要です'
     email: 'メールアドレス'
     flash_problem: 'パスワードを入力されていません'
@@ -249,25 +249,25 @@ jp:
       delete: '削除'
       edit: '編集'
       forgot_password: 'パスワードを忘れました'
-      helpful: 'すごい助かった'
-      not_helpful: '少し助かった'
+      helpful: 'いいね'
+      not_helpful: 'よくない'
       object: 'オブジェクト'
       remove_bump: 'いいね削除'
-      remove_demurral: '異議あり削除'
+      remove_demurral: '削除'
       remove_thank: 'いいね削除'
       post_as_guest: 'ゲストとして質問する'
       reply: 'リプライ'
-      sign_in: 'サインイン'
-      sign_out: 'サインアウト'
+      sign_in: 'ログイン'
+      sign_out: 'ログアウト'
       sign_up: 'サインアップ'
       update: 'アップデート'
     menus:
-      bumped_topics: 'いいトピック'
+      bumped_topics: 'いいねしたトピック'
       edit_profile: 'プロフィールを編集'
-      helpful_replies: 'すごく助かった返信'
+      helpful_replies: 'いいねした返信'
       me: '自分'
-      not_helpful_replies: '少し助かった返信'
-      objected_topics: '良くないトピック'
+      not_helpful_replies: 'バッドした返信'
+      objected_topics: 'バッドしたトピック'
   time:
     am: 'a.m.'
     formats:
@@ -277,7 +277,7 @@ jp:
     pm: 'p.m.'
   topics:
     create:
-      discussion_created: 'トピックが作られました.'
+      discussion_created: 'あなたのトピックが投稿されました'
     form:
       anonymous: '名無し'
       post_to_public: '投稿する'
@@ -296,9 +296,9 @@ jp:
   users:
     show:
       friend_heading: '友達にシェア'
-      my_public_discussions: '自分のオープンディスカッション'
-      my_public_replies: 'オープンリプライ'
-      public_heading: 'オープンディスカッションを始める'
+      my_public_discussions: '自分のトピック'
+      my_public_replies: '自分のリプライ'
+      public_heading: 'トピックを投稿する'
   will_paginate:
     next_label: '次のページ'
     previous_label: '前のページ'
