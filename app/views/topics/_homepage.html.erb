@@ -9,7 +9,7 @@
     <% if topic.image_url.present? %>
       <div class='attached-image mb-2 mr-2 mt-2'><%= link_to image_tag(topic.image_url.to_s), topic_path(topic) %></div>
     <% end %>
-    <p class='the-topic'><%= topic.subject.truncate(256) %></p>
+    <p class='the-topic'><%= link_to topic.subject.truncate(256), topic_path(topic) %></p>
     <div class='row'>
       <div class='col-md-7'>
         <% topic.tags.each do |tag| %>
