@@ -16,16 +16,18 @@
       </div>
     <% end %>
     <div class='field mb-4'>
-      <label><%= t('.upload_image') %></label>
+      <label><%= t('.upload_image') %> (jpg, jpeg, gif, png)</label>
       <%= f.file_field :image %>
       <%= f.hidden_field :image_cache %>
     </div>
   <% end %>
-  <div class='field float-right'>
+  <div class='field float-right mb-4'>
     <label><%= t('.anonymous') %></label>
     <%= f.check_box :anonymous %>
   </div>
-  <div class='mb-4'><%= recaptcha_tags %></div>
-  <%= f.submit (@topic.present? ? t('.update_topic') : t('.post_to_public')), class: 'btn btn-primary' %>
-  <%= link_to 'Cancel', current_user.present? ? user_path(current_user) : root_path, class: 'btn btn-secondary cancel-btn' %>
+  <div class='mb-4 mt-5'>
+    <%= f.submit (@topic.present? ? t('.update_topic') : t('.post_to_public')), class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', current_user.present? ? user_path(current_user) : root_path, class: 'btn btn-secondary cancel-btn' %>
+  </div>
+  <div><%= recaptcha_tags %></div>
 <% end %>
