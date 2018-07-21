@@ -12,7 +12,7 @@
     <% if reply.image_url.present? %>
       <div class='attached-image mb-2 mr-2 mt-2'><%= link_to image_tag(reply.image_url.to_s), reply_path(reply) %></div>
     <% end %>
-    <div class='the-reply'><p><%= simple_format(reply.body) %></p></div>
+    <div class='the-reply'><p><%= link_to simple_format(reply.body), reply_path(reply) %></p></div>
   </div>
   <div class='actions mb-4'>
     <%= link_to new_topic_reply_path(topic_id: reply.topic.id, reply_id: reply.id) do %>
@@ -65,13 +65,12 @@
     <% end %>
   </div>
   <% if @show_replies && reply.replies.any? %>
-    <h4 class='mt-4'><%= t('.follow_up') %></h4>
+    <% if reply.original.blank? %>
+      <h4 class='ml-4 mt-4'><%= t('.follow_up') %></h4>
+    <% end %>
     <div class='ml-4 mt-4'>
-      <% reply.replies.each do |follow_up| %>
-        <div class='mb-4'>
-          <div><span class='timestamp'><%= follow_up.updated_at.to_formatted_s(:short) %></span></div>
-          <p><%= simple_format(follow_up.body) %></p>
-        </div>
+      <% reply.get_all_replies.each do |follow_up| %>
+        <%= render partial: 'replies/reply', locals: { reply: follow_up } %>
       <% end %>
     </div>
   <% end %>

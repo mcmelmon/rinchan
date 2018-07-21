@@ -2,7 +2,24 @@
   <div class='topic'><%= render partial: 'topic', locals: { topic: @topic } %></div>
 
   <% if @replies.any? %>
-    <h4 class='mt-4'><%= t('.replies') %></h4>
+    <h4 class='mt-4'>
+      <span><%= t('.replies') %></span>
+      <span>
+        <%= link_to topic_path(@topic, order: 'up') do %>
+          <i class='fas fa-long-arrow-alt-up'></i>
+        <% end %>
+      </span>
+      <span>
+        <%= link_to topic_path(@topic, order: 'down') do %>
+          <i class='fas fa-long-arrow-alt-down'></i>
+        <% end %>
+      </span>
+      <span>
+        <%= link_to topic_path(@topic, order: 'sideways') do %>
+          <i class='fas fa-long-arrow-alt-right'></i>
+        <% end %>
+      </span>
+    </h4>
     <div class='ml-4 mt-4'><%= render partial: 'replies/list' %></div>
   <% end %>
 </div>

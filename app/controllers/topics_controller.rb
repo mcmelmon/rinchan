@@ -23,11 +23,11 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find_by(id: params[:id])
-    if @topic.blank?
+    if @topic.blank? || (@topic.hide && @topic.user != current_user)
       redirect_to root_path
       return
     end
-    @replies = @topic.replies.order(updated_at: :desc).paginate(page: params[:page])
+    set_replies
   end
 
   def update
@@ -41,6 +41,20 @@ class TopicsController < ApplicationController
   end
 
   private
+    def set_replies
+      case params[:order]
+      when 'up'
+        @replies = @topic.replies.sort{|r| r.updated_at}.paginate(page: params[:page])
+      when 'down'
+        @replies = @topic.replies.sort{|r| r.updated_at}.reverse.paginate(page: params[:page])
+      when 'sideways'
+        @replies = @topic.replies.select{ |r| r.original.blank? }.paginate(page: params[:page])
+        @show_replies = true
+      else
+        @replies = @topic.replies.sort{|r| r.updated_at}.paginate(page: params[:page])
+      end
+    end
+
     def topic_params
       params.require(:topic).permit(:image, :image_cache, :remove_image, :subject).tap do |clean_params|
         clean_params[:subject] = Rails::Html::FullSanitizer.new.sanitize(clean_params[:subject])

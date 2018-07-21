@@ -47,11 +47,11 @@ class Topic < ApplicationRecord
       display_topics = []
 
       if sorting.present?
-        Topic.by(sorting)
+        Topic.where.not(hide: true).by(sorting)
         # editor_topics = editorials.by(sorting)[0..30]
         # civilian_topics = non_editorials.by(sorting)[0..30]
       else
-        Topic.all
+        Topic.where.not(hide: true)
         # editor_topics = editorials.limit(30)
         # civilian_topics = non_editorials.limit(30)
       end
