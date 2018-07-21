@@ -26,5 +26,4 @@
     <%= f.submit (@reply.persisted? ? 'Update' : t('.reply')), class: 'btn btn-primary' %>
     <%= link_to 'Cancel', :back, class: 'btn btn-secondary cancel-btn' %>
   </div>
-  <div><%= recaptcha_tags %></div>
 <% end %>
