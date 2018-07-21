@@ -29,4 +29,7 @@
     <%= f.submit (@topic.present? ? t('.update_topic') : t('.post_to_public')), class: 'btn btn-primary' %>
     <%= link_to 'Cancel', current_user.present? ? user_path(current_user) : root_path, class: 'btn btn-secondary cancel-btn' %>
   </div>
+  <% unless current_user.present? %>
+    <div><%= recaptcha_tags %></div>
+  <% end %>
 <% end %>

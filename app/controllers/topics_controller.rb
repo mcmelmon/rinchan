@@ -6,7 +6,7 @@ class TopicsController < ApplicationController
   def create
     user = current_user || User.guest
     @topic = user.topics.build(topic_params)
-    if @topic.save # && verify_recaptcha(model: @topic)
+    if (current_user.present? || verify_recaptcha(model: @topic)) && @topic.save
       flash[:notice] = t('.discussion_created')
       redirect_to topic_path(@topic)
     else

@@ -6,7 +6,7 @@ class RepliesController < ApplicationController
   def create
     @reply = @topic.replies.build(reply_params)
     @reply.user = current_user || User.guest
-    if @reply.save # && verify_recaptcha(model: @reply)
+    if (current_user.present? || verify_recaptcha(model: @reply)) && @reply.save
       flash[:notice] = t('.reply_created')
     else
       flash[:error] = @reply.errors.messages.collect{|m| m[1]}
