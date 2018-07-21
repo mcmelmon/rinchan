@@ -41,24 +41,12 @@
             <i class='far fa-thumbs-up'></i>
           <% end %>
         </span>
-        <span>
-          <%= link_to reply_demurrals_path(reply), method: :post do %>
-            <i class='far fa-thumbs-down'></i>
-          <% end %>
-        </span>
       <% end %>
       <% if current_user_thanked_reply?(reply) %>
         <% thank = current_user.thanks.find_by(reply_id: reply.id) %>
         <span>
           <%= link_to thank, method: :delete, data: { confirm: t('site.are_you_sure') } do %>
             <i class='fas fa-thumbs-up'></i>
-          <% end %>
-        </span>
-      <% elsif current_user_demurred_to_reply?(reply) %>
-        <% demurral = current_user.demurrals.find_by(reply_id: reply.id) %>
-        <span>
-          <%= link_to demurral, method: :delete, data: { confirm: t('site.are_you_sure') } do %>
-            <i class='fas fa-thumbs-down'></i>
           <% end %>
         </span>
       <% end %>
