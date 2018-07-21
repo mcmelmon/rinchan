@@ -13,6 +13,11 @@ class Reply < ApplicationRecord
 
   validates_presence_of :body
 
+  def get_all_replies
+    return if replies.blank?
+    replies.each { |r| r.get_all_replies }
+  end
+
   def original
     Reply.find_by(id: original_id)
   end
