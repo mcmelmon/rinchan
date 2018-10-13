@@ -218,7 +218,8 @@ jp:
       topics: 'トピック'
       topics_with_activity: '返信のあったトピック'
       welcome_heading: 'ようこそ！'
-      what_we_do: "質問しよう！答えを得ることと同じぐらい価値があるから。"
+      what_we_do: "シリコンバレー在住の日本人の方向け情報交換サイトです。
+      あなたの聞きたいこと、シェアしたいこと、なんでもお気軽にご投稿ください。"
   objections:
     form:
       object: '異議'
@@ -267,7 +268,7 @@ jp:
       bumped_topics: 'いいねしたトピック'
       edit_profile: 'プロフィールを編集'
       helpful_replies: 'いいねした返信'
-      me: '自分'
+      me: '質問する'
       not_helpful_replies: 'バッドした返信'
       objected_topics: 'バッドしたトピック'
   time:
@@ -281,9 +282,9 @@ jp:
     create:
       discussion_created: 'あなたのトピックが投稿されました'
     form:
-      anonymous: '名無し'
+      anonymous: '匿名で投稿する'
       post_to_public: '投稿する'
-      tag_examples: 'ハッシュタグ'
+      tag_examples: 'このトピックに関連するキーワードをつけてください。'
       update_topic: 'アップデート'
       upload_image: '写真をアップロード'
     homepage:
@@ -298,9 +299,9 @@ jp:
   users:
     show:
       friend_heading: '友達にシェア'
-      my_public_discussions: '自分のトピック'
+      my_public_discussions: '自分が投稿したトピック'
       my_public_replies: '自分のリプライ'
-      public_heading: 'トピックを投稿する'
+      public_heading: 'トピックを投稿してください'
   will_paginate:
     next_label: '次のページ'
     previous_label: '前のページ'
