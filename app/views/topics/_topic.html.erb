@@ -4,6 +4,10 @@
     <% if topic.replies.any? && @topic.blank? %>
       <span> | <%= link_to t('.replies'), topic_path(topic) %>(<%= topic.replies.count %>)</span>
     <% end %>
+    <span> | </span>
+    <% topic.tags.each do |tag| %>
+      <div class='tag'><%= link_to tag.name, tag_path(tag) %></div>
+    <% end %>
   </div>
   <div>
     <% if topic.image_url.present? %>
@@ -12,27 +16,22 @@
     <p class='the-topic'><%= link_to topic.subject.truncate(256), topic_path(topic) %></p>
   </div>
   <div class='row'>
-    <div class='col-md-8'>
-      <% topic.tags.each do |tag| %>
-        <div class='tag'><%= link_to tag.name, tag_path(tag) %></div>
-      <% end %>
-    </div>
-    <div class='col-md-4 text-right'>
+    <div class='col'>
       <div class='actions'>
         <span>
           <%= link_to new_topic_reply_path(topic) do %>
-            <i class='far fa-comment'></i>
+            <%= t('site.actions.reply') %><i class='far fa-comment'></i>
           <% end %>
         </span>
         <% if topic_belongs_to_current_user?(topic) %>
           <span>
             <%= link_to edit_topic_path(topic) do %>
-              <i class='fas fa-edit'></i>
+              <%= t('site.actions.edit') %><i class='fas fa-edit'></i>
             <% end %>
           </span>
           <span>
             <%= link_to topic, method: :delete, data: { confirm: t('site.are_you_sure') } do %>
-              <i class='fas fa-trash-alt'></i>
+              <%= t('site.actions.delete') %><i class='fas fa-trash-alt'></i>
             <% end %>
           </span>
         <% else %>
