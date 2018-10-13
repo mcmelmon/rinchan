@@ -16,7 +16,7 @@
   </div>
   <div class='actions mb-4'>
     <%= link_to new_topic_reply_path(topic_id: reply.topic.id, reply_id: reply.id) do %>
-      <i class='far fa-comment'></i>
+      <%= t('site.actions.reply') %><i class='far fa-comment'></i>
     <% end %>
     <% if reply.original.present? %>
       <%= link_to reply_path(reply.original) do %>
@@ -26,12 +26,12 @@
     <% if reply_belongs_to_current_user?(reply) %>
       <span>
         <%= link_to edit_reply_path(reply) do %>
-          <i class='fas fa-edit'></i>
+          <%= t('site.actions.edit') %><i class='fas fa-edit'></i>
         <% end %>
       </span>
       <span>
         <%= link_to reply, method: :delete, data: { confirm: t('site.are_you_sure') } do %>
-          <i class='fas fa-trash-alt'></i>
+          <%= t('site.actions.delete') %><i class='fas fa-trash-alt'></i>
         <% end %>
       </span>
     <% else %>

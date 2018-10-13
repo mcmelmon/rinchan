@@ -3,11 +3,13 @@
     <div class='container'>
       <h1 class='display-3'><%= t('.welcome_heading') %></h1>
       <p><%= t('.what_we_do') %></p>
-      <% unless user_signed_in? %>
+      <% if user_signed_in? %>
+        <div class='mt-4'><%= link_to t('site.actions.post_as_guest'), new_topic_path, class: 'btn btn-primary' %></div>
+      <% else %>
         <div class='mt-4'>
           <span><%= link_to t('site.actions.sign_up'), new_user_registration_path, class: 'btn btn-primary' %></span>
           <span><%= link_to t('site.actions.post_as_guest'), new_topic_path, class: 'btn btn-secondary' %></span>
-      </div>
+        </div>
       <% end %>
     </div>
   </div>
