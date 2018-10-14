@@ -1,9 +1,9 @@
 class TopicsController < ApplicationController
   before_action :authenticate_user!, only: [:destroy, :edit, :update]
   before_action :correct_user, only: [:destroy, :edit, :update]
-  after_action :tag_topic, only: [:create, :update]
   before_action :find_link, only: [:create, :update]
   after_action :set_link, only: [:create, :update]
+  after_action :tag_topic, only: [:create, :update]
 
   def create
     user = current_user || User.guest
@@ -75,8 +75,8 @@ class TopicsController < ApplicationController
     end
 
     def find_link
-      return if params[:topic][:link_url].present? || @topic&.topic_link.present?
-      return unless link_matches = params[:topic][:subject].match(/(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/)
+      return if current_user.blank? || params[:topic][:link_url].present? || @topic&.topic_link.present?
+      return unless link_matches = params[:topic][:subject].match(/(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?(?:\ )?/)
       first_link = link_matches[0]
       first_link = first_link.match(/https?/).blank? ? 'https://' + first_link : first_link
 

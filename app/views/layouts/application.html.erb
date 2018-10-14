@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <%= render partial: 'layouts/google' %>
+    <%= render partial: 'layouts/google' if Rails.env.production? %>
     <%= render partial: 'layouts/facebook' %>
     <title>Oijofie</title>
     <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css', integrity: 'sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4', crossorigin: 'anonymous' %>
