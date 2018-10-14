@@ -82,9 +82,9 @@ class RepliesController < ApplicationController
     end
 
     def find_link
-      return if params[:reply][:link_url].present? || @reply&.topic_link.present?
-      return unless link_matches = params[:reply][:body].match(/(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/)
-      first_link = link_matches[0]
+      return if current_user.blank? || params[:reply][:link_url].present? || @reply&.topic_link.present?
+      return unless link_matches = params[:reply][:body].match(/(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?(?:\ )?/)
+      first_link = link_matches[0].strip
       first_link = first_link.match(/https?/).blank? ? 'https://' + first_link : first_link
 
       object = LinkThumbnailer.generate(first_link) if first_link.present?
