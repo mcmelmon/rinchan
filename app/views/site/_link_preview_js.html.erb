@@ -81,12 +81,12 @@ function updateInput(text) {
 $(document).ready ( function() {
   $('a#remove_reply_link').on('click', function(e) {
     e.preventDefault();
-    removeLink(<%= params[:id] %>, 'replies');
+    removeLink(<%= params[:id] + ',' if params[:id].present? %> 'replies');
   });
 
   $('a#remove_topic_link').on('click', function(e) {
     e.preventDefault();
-    removeLink(<%= params[:id] %>, 'topics');
+    removeLink(<%= params[:id] + ',' if params[:id].present? %> 'topics');
   });
 
   $('textarea#topic_subject').on('input', function(e) {

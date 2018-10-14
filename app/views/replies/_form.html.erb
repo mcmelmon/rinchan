@@ -8,7 +8,7 @@
 
   <div class="post-link <%= f.object.link? ? '' : 'd-none' %>">
     <div class='row'>
-      <div id='link_image' class='image col-3'><%= image_tag(f.object.topic_link&.image_url || 'default_image') %></div>
+      <div id='link_image' class='image col-3'><%= image_tag(f.object.topic_link&.image_url || 'default_image.png') %></div>
       <div class='description col-9'>
         <div class='row border-bottom border-secondary'>
           <div class='col-9'>
