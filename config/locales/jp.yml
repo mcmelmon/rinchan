@@ -260,6 +260,7 @@ jp:
       object: 'オブジェクト'
       remove_bump: 'いいね削除'
       remove_demurral: '削除'
+      remove_link: 'いいね削除'
       remove_thank: 'いいね削除'
       post_as_guest: 'ゲストとして質問する'
       reply: 'リプライ'

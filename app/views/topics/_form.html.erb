@@ -1,8 +1,32 @@
+<%= render partial: 'site/link_preview_js' if user_signed_in? %>
+
 <%= form_for(@topic || Topic.new) do |f| %>
   <%= render 'site/error_messages', object: f.object %>
   <div class='field mt-2'>
     <%= f.text_area :subject %>
   </div>
+
+  <div class="post-link <%= f.object.link? ? '' : 'd-none' %>">
+    <div class='row'>
+      <div id='link_image' class='image col-3'><%= image_tag(f.object.topic_link&.image_url || 'default_image') %></div>
+      <div class='description col-9'>
+        <div class='row border-bottom border-secondary'>
+          <div class='col-9'>
+            <h4 id='link_title' class='font-weight-bold text-left'><%= link_to(f.object.topic_link&.title , '#', id: 'link_url', target: '_blank') %></h4>
+          </div>
+          <div class='col-3 text-right'>
+            <%= link_to t('site.actions.remove_link'), '#', class: 'text-right', id: 'remove_topic_link' %>
+          </div>
+        </div>
+        <p id='link_description' class='mt-2'><%= f.object.topic_link&.description %></p>
+      </div>
+      <%= f.hidden_field :link_url, value: f.object.topic_link&.url %>
+      <%= f.hidden_field :link_image_url, value: f.object.topic_link&.image_url %>
+      <%= f.hidden_field :link_title, value: f.object.topic_link&.title %>
+      <%= f.hidden_field :link_description, value: f.object.topic_link&.description %>
+    </div>
+  </div>
+
   <div class='field tags mb-4'>
     <label><%= t('.tag_examples') %></label><br />
     <%= text_field_tag :tags, @topic&.display_tags %>

@@ -14,6 +14,15 @@
     <% end %>
     <div class='the-reply'><p><%= link_to simple_format(reply.body), reply_path(reply) %></p></div>
   </div>
+  <div class="post-link <%= reply.link? ? '' : 'd-none' %>">
+    <div class='row'>
+      <div class='image col-3'><%= image_tag(reply.topic_link.image_url) if reply.link? && reply.topic_link.image_url.present? %></div>
+      <div class='description col-9'>
+        <h4 class='border-bottom border-secondary font-weight-bold text-left'><%= link_to(reply.topic_link&.title , '#', id: 'link_url', target: '_blank') %></h4>
+        <p><%= reply.topic_link&.description %></p>
+      </div>
+    </div>
+  </div>
   <div class='actions mb-4'>
     <%= link_to new_topic_reply_path(topic_id: reply.topic.id, reply_id: reply.id) do %>
       <%= t('site.actions.reply') %><i class='far fa-comment'></i>

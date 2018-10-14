@@ -8,6 +8,7 @@ class Topic < ApplicationRecord
   has_many :tags, inverse_of: :topic, dependent: :destroy
   has_many :bumps, inverse_of: :topic, dependent: :destroy
   has_many :objections, inverse_of: :topic, dependent: :destroy
+  has_one :topic_link, as: :parent, inverse_of: :parent, dependent: :destroy
 
   default_scope -> { order(updated_at: :desc) }
 
@@ -40,6 +41,10 @@ class Topic < ApplicationRecord
 
   def display_tags
     tags.collect(&:name).join(', ')
+  end
+
+  def link?
+    topic_link.present?
   end
 
   private

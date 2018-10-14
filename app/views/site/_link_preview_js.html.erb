@@ -1,0 +1,102 @@
+<script>
+var foundLink = false;
+
+function findLinks(inputText) {
+  var urlRegex = /(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/;
+
+  if (inputText[inputText.length -1] == ' ') {
+    return inputText.trim().replace(urlRegex, function(url) {
+      foundLink = true;
+      showLink(url);
+      return '<a href="' + url + '">' + url + '</a>';
+    });
+  }
+}
+
+function clearLink() {
+  foundLink = false;
+
+  $('input#topic_link_url').val('');
+  $('input#topic_link_image_url').val('');
+  $('input#topic_link_title').val('');
+  $('input#topic_link_description').val('');
+
+  $('input#reply_link_url').val('');
+  $('input#reply_link_image_url').val('');
+  $('input#reply_link_title').val('');
+  $('input#reply_link_description').val('');
+
+  $('form a#link_url').attr('href', '');
+  $('form a#link_url').text('')
+  $('form .description p#link_description').text('')
+  $('form #link_image img').attr('src', '')
+
+  $('.post-link').addClass('d-none');
+}
+
+function removeLink(id, controller) {
+  if (isNaN(id)) { clearLink(); }
+  else {
+    $.ajax({
+      type: 'GET',
+      url: '/' + controller + '/' + id + '/remove_link',
+      data: {},
+      success: function(data, textStatus, jqXHR){ clearLink(); },
+      error: function(jqXHR, textStatus, errorThrown){}
+    });
+  }
+}
+
+function showLink(url) {
+  $.ajax({
+    type: 'GET',
+    url: '/topics/preview_link',
+    data: {link: url},
+    success: function(data, textStatus, jqXHR){
+      $('input#topic_link_url').val(url);
+      $('input#topic_link_image_url').val(data['images'][0]['src']);
+      $('input#topic_link_title').val(data['title']);
+      $('input#topic_link_description').val(data['description']);
+
+      $('input#reply_link_url').val(url);
+      $('input#reply_link_image_url').val(data['images'][0]['src']);
+      $('input#reply_link_title').val(data['title']);
+      $('input#reply_link_description').val(data['description']);
+
+      $('form a#link_url').attr('href', url);
+      $('form a#link_url').text(data['title'])
+      $('form .description p#link_description').text(data['description'])
+      $('form #link_image img').attr('src', data['images'][0]['src'])
+
+      $('.post-link').removeClass('d-none');
+    },
+    error: function(jqXHR, textStatus, errorThrown){}
+  })
+}
+
+function updateInput(text) {
+  $('textarea#topic_subject').val(text);
+}
+
+$(document).ready ( function() {
+  $('a#remove_reply_link').on('click', function(e) {
+    e.preventDefault();
+    removeLink(<%= params[:id] %>, 'replies');
+  });
+
+  $('a#remove_topic_link').on('click', function(e) {
+    e.preventDefault();
+    removeLink(<%= params[:id] %>, 'topics');
+  });
+
+  $('textarea#topic_subject').on('input', function(e) {
+    var text = $(this).val();
+    if (foundLink == false) { findLinks(text); }
+  });
+
+  $('textarea#reply_body').on('input', function(e) {
+    var text = $(this).val();
+    if (foundLink == false) { findLinks(text); }
+  });
+});
+</script>
