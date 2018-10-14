@@ -21,9 +21,21 @@ Rails.application.routes.draw do
   resources :bulletins, shallow: true
   resources :tags, only: [:show]
   resources :topics, shallow: true do
+    collection do
+      get :preview_link
+    end
+    member do
+      get :remove_link
+    end
     resources :bumps, only: [:create, :destroy]
     resources :objections
     resources :replies do
+      collection do
+        get :preview_link
+      end
+      member do
+        get :remove_link
+      end
       resources :demurrals, only: [:create, :destroy]
       resources :thanks, only: [:create, :destroy]
     end
