@@ -9,7 +9,7 @@ ruby '2.5.1'
 
 gem 'activeadmin'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'bootstrap', '~> 4.1'
+gem 'bootstrap', '~> 4.1.2'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'carrierwave'
 gem 'coffee-rails', '~> 4.2'
