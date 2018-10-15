@@ -4,26 +4,24 @@
       <h2><%= t('.public_heading') %></h2>
       <div><%= render partial: 'topics/form' %></div>
 
-      <% if @topics.any? %>
-        <h3 class='mt-4'><%= t('.my_public_discussions') %></h3>
-        <div class='mt-4'><%= render partial: 'topics/list' %></div>
-      <% end %>
-
-      <% if @replies.any? %>
-        <h3 class='mt-2'><%= t('.my_public_replies') %></h3>
-        <div class='mt-4'><%= render partial: 'replies/list' %></div>
-      <% end %>
-    </div>
-
-    <% if false # start with the public discussions %>
-      <div class='col-md'>
-        <h2><%= t('.friend_heading') %></h2>
-        <div><%= render partial: 'bulletins/form' %></div>
-
-        <% if @user.bulletins.any? %>
-          <div class='mt-4'><%= render partial: 'bulletins' %></div>
+      <div class='navigation'>
+        <div class='heading mb-4'>
+          <div class='tabs'>
+            <div class="tab <%= params[:show].present? ? '' : 'active' %>"><h3><%= link_to t('.my_public_discussions'), user_path(@user) %></h3></div>
+            <div class="tab <%= (params[:show] == 'replies') ? 'active' : '' %>"><h3><%= link_to t('.my_public_replies'), user_path(@user, show: 'replies') %></h3></div>
+            <div class="tab <%= (params[:show] == 'answers') ? 'active' : '' %>"><h3><%= link_to t('.my_public_answers'), user_path(@user, show: 'answers') %></h3></div>
+          </div>
+        </div>
+      </div>
+      <div class='posts'>
+        <% if params[:show].blank? %>
+          <div class='mt-4'><%= render partial: 'topics/list' %></div>
+        <% elsif params[:show] == 'replies' %>
+          <div class='mt-4'><%= render partial: 'replies/list' %></div>
+        <% elsif params[:show] == 'answers' %>
+          <div class='mt-4'><%= render partial: 'replies/list' %></div>
         <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>

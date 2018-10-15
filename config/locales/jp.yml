@@ -303,6 +303,7 @@ jp:
   users:
     show:
       friend_heading: '友達にシェア'
+      my_public_answers: 'あなたの質問に対する答え'
       my_public_discussions: '自分が投稿したトピック'
       my_public_replies: '自分のリプライ'
       public_heading: 'トピックを投稿してください'
