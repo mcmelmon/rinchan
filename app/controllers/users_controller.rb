@@ -2,9 +2,13 @@ class UsersController < ApplicationController
   before_action :correct_user
 
   def show
-    # @bulletins = @user.bulletins.paginate(page: params[:page])
-    @topics = @user.topics.paginate(page: params[:page], per_page: 10)
-    @replies = @user.replies.paginate(page: params[:page], per_page: 10)
+    if params[:show].blank?
+      @topics = @user.topics.paginate(page: params[:page], per_page: 20)
+    elsif params[:show] == 'replies'
+      @replies = @user.replies.paginate(page: params[:page], per_page: 20)
+    elsif params[:show] == 'answers'
+      @replies = @user.answers.paginate(page: params[:page], per_page: 20)
+    end
   end
 
   private

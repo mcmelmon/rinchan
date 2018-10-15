@@ -12,6 +12,9 @@ class Reply < ApplicationRecord
 
   default_scope -> { order(updated_at: :desc) }
 
+  scope :topic_answers_for_user, -> (user) { where(topic_id: user.topics).where.not(user_id: user.id) } 
+  scope :reply_answers_for_user, -> (user) { where(original_id: user.replies).where.not(user_id: user.id) } 
+
   validates_presence_of :body
 
   def get_all_replies

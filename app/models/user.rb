@@ -27,6 +27,10 @@ class User < ApplicationRecord
     super and self.is_active?
   end
 
+  def answers
+    (Reply.topic_answers_for_user(self) + Reply.reply_answers_for_user(self)).sort_by { |answer| answer.updated_at }.reverse
+  end
+
   private
     def only_one_guest
       if name == 'guest' && User.find_by(name: 'guest').present?
