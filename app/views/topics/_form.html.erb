@@ -44,16 +44,14 @@
       <%= f.file_field :image %>
       <%= f.hidden_field :image_cache %>
     </div>
+    <div class='field float-right mb-4'>
+      <label><%= t('.anonymous') %></label>
+      <%= f.check_box :anonymous %>
+    </div>
   <% end %>
-  <div class='field float-right mb-4'>
-    <label><%= t('.anonymous') %></label>
-    <%= f.check_box :anonymous %>
-  </div>
   <div class='mb-4 mt-5'>
     <%= f.submit (@topic.present? ? t('.update_topic') : t('.post_to_public')), class: 'btn btn-primary' %>
     <%= link_to 'Cancel', current_user.present? ? user_path(current_user) : root_path, class: 'btn btn-secondary cancel-btn' %>
   </div>
-  <% unless current_user.present? %>
-    <div><%= recaptcha_tags %></div>
-  <% end %>
+  <%= invisible_captcha %>
 <% end %>

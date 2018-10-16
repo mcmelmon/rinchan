@@ -5,10 +5,12 @@ class TopicsController < ApplicationController
   after_action :set_link, only: [:create, :update]
   after_action :tag_topic, only: [:create, :update]
 
+  invisible_captcha only: [:create, :update]
+
   def create
     user = current_user || User.guest
     @topic = user.topics.build(topic_params)
-    if (current_user.present? || verify_recaptcha(model: @topic)) && @topic.save
+    if @topic.save
       flash[:notice] = t('.discussion_created')
       redirect_to topic_path(@topic)
     else
@@ -62,7 +64,7 @@ class TopicsController < ApplicationController
 
   private
     def topic_params
-      params.require(:topic).permit(:image, :image_cache, :remove_image, :subject).tap do |clean_params|
+      params.require(:topic).permit(:anonymous, :image, :image_cache, :remove_image, :subject).tap do |clean_params|
         clean_params[:subject] = Rails::Html::FullSanitizer.new.sanitize(clean_params[:subject])
         clean_params[:image] = nil unless current_user.present?
         clean_params[:image_cache] = nil unless current_user.present?

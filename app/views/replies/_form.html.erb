@@ -40,17 +40,15 @@
       <%= f.file_field :image %>
       <%= f.hidden_field :image_cache %>
     </div>
+    <div class='field float-right'>
+      <label><%= t('.anonymous') %></label>
+      <%= f.check_box :anonymous %>
+    </div>
   <% end %>
-  <div class='field float-right'>
-    <label><%= t('.anonymous') %></label>
-    <%= f.check_box :anonymous %>
-  </div>
   <%= f.hidden_field :original_id %>
   <div class='mb-4 mt-5'>
     <%= f.submit (@reply.persisted? ? 'Update' : t('.reply')), class: 'btn btn-primary' %>
     <%= link_to 'Cancel', :back, class: 'btn btn-secondary cancel-btn' %>
   </div>
-  <% unless current_user.present? %>
-    <div><%= recaptcha_tags %></div>
-  <% end %>
+  <%= invisible_captcha %>
 <% end %>

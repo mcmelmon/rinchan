@@ -1,12 +1,11 @@
 <div class='mb-4' id='topic-<%= topic.id %>'>
   <div>
     <span class='timestamp'><%= link_to topic.updated_at.to_formatted_s(:short), topic_path(topic) %></span>
-    <% if topic.replies.any? && @topic.blank? %>
-      <span> | <%= link_to t('.replies'), topic_path(topic) %>(<%= topic.replies.count %>)</span>
-    <% end %>
-    <span> | </span>
-    <% topic.tags.each do |tag| %>
-      <div class='tag'><%= link_to tag.name, tag_path(tag) %></div>
+    <% if topic.tags.present? %>
+      <span> | </span>
+      <% topic.tags.each_with_index do |tag, index| %>
+        <span class='tag'><%= link_to tag.name, tag_path(tag) %><%= ', ' unless index == topic.tags.count - 1 %></span>
+      <% end %>
     <% end %>
   </div>
   <div>
@@ -24,6 +23,11 @@
       </div>
     </div>
   </div>
+
+  <% unless topic.anonymous %>
+    <span class='poster-email'> -- <%= topic.user.email %></span>
+  <% end %>
+
   <div class='row'>
     <div class='col'>
       <div class='actions'>
