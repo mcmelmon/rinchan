@@ -5,10 +5,12 @@ class RepliesController < ApplicationController
   before_action :find_link, only: [:create, :update]
   after_action :set_link, only: [:create, :update]
 
+  invisible_captcha only: [:create, :update]
+
   def create
     @reply = @topic.replies.build(reply_params)
     @reply.user = current_user || User.guest
-    if (current_user.present? || verify_recaptcha(model: @reply)) && @reply.save
+    if @reply.save
       flash[:notice] = t('.reply_created')
     else
       flash[:error] = @reply.errors.messages.collect{|m| m[1]}
@@ -71,7 +73,7 @@ class RepliesController < ApplicationController
 
   private
     def reply_params
-      params.require(:reply).permit(:body, :image, :image_cache, :original_id).tap do |clean_params|
+      params.require(:reply).permit(:anonymous, :body, :image, :image_cache, :original_id).tap do |clean_params|
         clean_params[:body] = Rails::Html::FullSanitizer.new.sanitize(clean_params[:body])
       end
     end

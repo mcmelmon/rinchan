@@ -1,12 +1,16 @@
 <div class='mb-4' id='topic-<%= topic.id %>'>
   <div>
-    <span class='timestamp'><%= link_to topic.updated_at.to_formatted_s(:short), topic_path(topic) %></span>
-    <% if topic.replies.any? %>
-      <span> | <%= link_to t('.replies'), topic_path(topic) %>(<%= topic.replies.count %>)</span>
-    <% end %>
-    <span> | </span>
-    <% topic.tags.each do |tag| %>
-      <div class='tag'><%= link_to tag.name, tag_path(tag) %></div>
+    <span class='timestamp'>
+      <%= link_to topic.updated_at.to_formatted_s(:short), topic_path(topic) %> 
+      <% if topic.replies.present? %>
+        (<%= link_to topic.replies.count, topic_path(topic) %>)
+      <% end %>
+    </span>
+    <% if topic.tags.present? %>
+      <span> | </span>
+      <% topic.tags.each_with_index do |tag, index| %>
+        <span class='tag'><%= link_to tag.name, tag_path(tag) %><%= ', ' unless index == topic.tags.count - 1 %></span>
+      <% end %>
     <% end %>
   </div>
   <div>
@@ -23,7 +27,12 @@
         </div>
       </div>
     </div>
-    <div>
+
+    <% unless topic.anonymous %>
+      <div class='poster-email'> -- <%= topic.user.email %></div>
+    <% end %>
+
+    <div class='actions'>
       <%= link_to new_topic_reply_path(topic) do %>
         <%= t('site.actions.reply') %><i class='far fa-comment'></i>
       <% end %>
