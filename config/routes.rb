@@ -30,9 +30,6 @@ Rails.application.routes.draw do
     resources :bumps, only: [:create, :destroy]
     resources :objections
     resources :replies do
-      collection do
-        get :preview_link
-      end
       member do
         get :remove_link
       end
