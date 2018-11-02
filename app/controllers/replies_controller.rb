@@ -24,19 +24,6 @@ class RepliesController < ApplicationController
     redirect_to request.referrer || root_url
   end
 
-  def edit
-  end
-
-  def preview_link
-    if params[:link].blank?
-      redirect_to root_path
-      return
-    end
-    the_link = params[:link].match(/https?/).blank? ? 'https://' + params[:link] : params[:link]
-    object = LinkThumbnailer.generate(the_link)
-    render json: object.to_json
-  end
-
   def remove_link
     reply = current_user.replies.find_by(id: params[:id])
     if reply.present?
