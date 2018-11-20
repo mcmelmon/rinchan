@@ -18,7 +18,7 @@
     <div class='row'>
       <div class='image col-3'><%= image_tag(topic.topic_link.image_url) if topic.link? && topic.topic_link.image_url.present? %></div>
       <div class='description col-9'>
-        <h4 class='border-bottom border-secondary font-weight-bold text-left'><%= link_to(topic.topic_link&.title , '#', id: 'link_url', target: '_blank') %></h4>
+        <h4 class='border-bottom border-secondary font-weight-bold text-left'><%= link_to(topic.topic_link&.title, topic.topic_link&.url, id: 'link_url', target: '_blank') %></h4>
         <p><%= topic.topic_link&.description %></p>
       </div>
     </div>
